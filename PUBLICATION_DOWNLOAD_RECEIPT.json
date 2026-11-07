@@ -1,0 +1,20 @@
+{
+  "status": "PUBLIC_DOWNLOAD_VERIFIED",
+  "date": "2026-11-07",
+  "edition": "2026.11.07-publication-v2",
+  "publication_commit": "9e24ac6a4aae1a690e439c6818c530095798044a",
+  "canonical_repository": "https://github.com/TRYX-Relay/TRYX-Riemann-Mathic",
+  "immutable_download_url": "https://raw.githubusercontent.com/TRYX-Relay/TRYX-Riemann-Mathic/9e24ac6a4aae1a690e439c6818c530095798044a/RIEMANN_PUBLICATION_20261107.zip",
+  "http_status": 200,
+  "credentials_sent": false,
+  "cookies_sent": false,
+  "zip_bytes": 2372691,
+  "zip_sha256": "5bdce88ecebb56838464044239fbc424aa15abc56bd32aa44214b5dc75aaf248",
+  "zip_entries": 89,
+  "zip_integrity": "PASS",
+  "all_manifest_file_hashes_match": true,
+  "final_public_artifact_files_verified": 89,
+  "lean_rerun": false,
+  "original_locks_preserved": true,
+  "universal_RH_closed": false
+}
