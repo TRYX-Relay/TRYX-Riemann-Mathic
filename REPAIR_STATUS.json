@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-07",
+  "version": "RIEMANN_REPAIR_261107_V2",
+  "status": "PUBLICATION_CANDIDATE_PREPARED",
+  "phase": "Document repairs complete; public repository created; upload and anonymous validation pending",
+  "predecessor_repository": "TRYX-Relay/TRYX-MATHIC",
+  "predecessor_commit": "7c5443938bb39e59d2c36ddec85c80f7a6649e58",
+  "predecessor_zip_blob": "ff3e1754f97c04283712d0b6564f6a5a392e5aac",
+  "completed_checklist_items": [
+    "R01",
+    "R02",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R09",
+    "R10",
+    "R11",
+    "R12",
+    "R13",
+    "R14",
+    "R15",
+    "R16",
+    "R17",
+    "R18",
+    "R19"
+  ],
+  "open_checklist_items": [
+    "R20",
+    "R21"
+  ],
+  "protected_files": [
+    {
+      "path": "lineage/paper-2026-11-06/PAPER.pdf",
+      "sha256": "7640ddf45d85cf1da73b00662df5a3439f8bfc910e45973adabf8182c5ea5c9d",
+      "unchanged": true
+    },
+    {
+      "path": "lineage/paper-2026-11-06/PAPER.docx",
+      "sha256": "b82aad4a69b9d29f5c65f12fde4937c192402679fda44678b420dd23b599e640",
+      "unchanged": true
+    },
+    {
+      "path": "lineage/paper-2026-11-06/PAPER.txt",
+      "sha256": "464bdcf60c398f49bdb5ac74efaa504406b80033a258294df59e33a095a20bc2",
+      "unchanged": true
+    },
+    {
+      "path": "lineage/paper-2026-11-06/LOCK.json",
+      "sha256": "452ee6eced339d096fe9329ba8b024275e7196095316b269894124e0170923bd",
+      "unchanged": true
+    },
+    {
+      "path": "mathic/MATHIC.pdf",
+      "sha256": "a0f6c7861021e45e80605fb0c1efb5377250381a59d2ea4605455ec94f84983b",
+      "unchanged": true
+    },
+    {
+      "path": "mathic/MATHIC.md",
+      "sha256": "5cb3ae8abdb277e2467a88ad07ac55ccc2183df5f374441baae6a9483056b669",
+      "unchanged": true
+    },
+    {
+      "path": "mathic/LOCK.json",
+      "sha256": "93aae9eda64821bc5265587cce5a3aeaed9aa0cdc92593be6f08c5a3d01986ff",
+      "unchanged": true
+    },
+    {
+      "path": "lean/PrimeCrease.lean",
+      "sha256": "6b5baed815b2d12fc20e0f6415ccabc40db4f196348c6e46d5cd76f3071de5e2",
+      "unchanged": true
+    },
+    {
+      "path": "lean/lakefile.toml",
+      "sha256": "b48c7b9471af7a9ae54fcf730cf43a876732e8a58e07d34ba2b41c8a021ba450",
+      "unchanged": true
+    },
+    {
+      "path": "lean/lake-manifest.json",
+      "sha256": "dbd69acd9b550f0dcc2883c5e1d4568fd825639f646d3a6ff1a26772831015ff",
+      "unchanged": true
+    },
+    {
+      "path": "lean/lean-toolchain",
+      "sha256": "8190e75a201741065fe508b28955dd64dd72d090babe5f70ce6848879d68ae88",
+      "unchanged": true
+    },
+    {
+      "path": "verification/lean-compile.log",
+      "sha256": "0d794dfac664ac7a323b208382f10f8f084587d76d482418dd47c1ea94465b4b",
+      "unchanged": true
+    },
+    {
+      "path": "verification/lake-build.log",
+      "sha256": "c3756c9bc94378cd9e178d32bfeb49c82f888d78b0858a658aef3fe2462bd0f3",
+      "unchanged": true
+    },
+    {
+      "path": "LEAN_VERIFICATION_CURRENT.md",
+      "sha256": "9da2eccf0ffa42febadc6f93cd4c9ff131de74ce4a7bcdd839e4db664f32183f",
+      "unchanged": true
+    }
+  ],
+  "instrument_runtime_bytes_unchanged": true,
+  "single_active_lean_file": true,
+  "lean_rerun": false,
+  "proof_evidence_stale": false,
+  "saved_full_contour_replay_disks": 128,
+  "portable_launcher_arithmetic_check_disks": 1,
+  "historical_reference_targets": 15,
+  "historical_pdf_link_occurrences": 17,
+  "canonical_public_url": "https://github.com/TRYX-Relay/TRYX-Riemann-Mathic",
+  "external_publication_or_ledger_changes": true,
+  "citation_status": "Final dated publication metadata; upload and anonymous verification pending",
+  "scope": "Admitted local closure and exact signed-crease readout; no universal RH closure."
+}

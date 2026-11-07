@@ -1,0 +1,26 @@
+{
+  "edition": "Prime Crease Verified Local Closure MATHIC V8.1",
+  "date": "2026-11-06",
+  "timezone": "America/Anchorage",
+  "status": "LOCKED_APPEND_ONLY_SUCCESSOR",
+  "authorization": "Owner-directed GitHub and ledger lock",
+  "scope": "Verified local closure of admitted prime records and exact signed-crease readout under the stated hypotheses.",
+  "sole_lean_source": "lean/PrimeCrease.lean",
+  "verification": {
+    "warnings_as_errors_compile": "PASS",
+    "lake_build": "PASS",
+    "proof_placeholders": "NONE",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "counter_questions": 18,
+  "disproof_tests": 8,
+  "edit_rule": "Preserve this edition; amendments require a versioned successor.",
+  "publication_lock_meaning": "Versioned source and file preservation; this does not create GitHub branch protection or assert full RH closure.",
+  "predecessor": "75e8bd0e9250f0108e27bf158769a11062357cd1",
+  "change": "Editorial successor: explicit closure theorem with premises and proof; unchanged Lean source.",
+  "verification_basis": "Exact source identical to compiled locked V8; no new compiler run."
+}

@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-07",
+  "timezone": "America/Anchorage",
+  "edition": "Prime Crease Verified Local Closure MATHIC V8.1",
+  "status": "PASS_WITHIN_DECLARED_SCOPE",
+  "source_commit": "7c5443938bb39e59d2c36ddec85c80f7a6649e58",
+  "fresh_exact_controls": true,
+  "fresh_numerical_diagnostics": true,
+  "fresh_contour_disks": 128,
+  "fresh_geometry_winding": 1,
+  "lean_rerun": false,
+  "lean_evidence_current": true,
+  "full_RH_proved": false,
+  "github_or_ledger_modified": false,
+  "scope": "Admitted prime-record closure, exact signed-crease readout, full-address recovery retaining d, and the bounded contour result under reviewed analytic bounds.",
+  "result_files": [
+    "EXACT_RESULTS.json",
+    "NUMERICAL_RESULTS.json",
+    "GEOMETRY_RESULTS.json",
+    "CONTOUR_RESULTS.json",
+    "LEAN_FRESHNESS.json"
+  ]
+}

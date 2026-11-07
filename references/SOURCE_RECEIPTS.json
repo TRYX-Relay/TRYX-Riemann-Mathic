@@ -1,0 +1,122 @@
+[
+  {
+    "original_url": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/857dd12a75e7278146775698de72f0e1d783c169/archive/riemann/paper/261106-prime-crease-integrated-v1/PAPER.pdf",
+    "ref": "857dd12a75e7278146775698de72f0e1d783c169",
+    "repository_path": "archive/riemann/paper/261106-prime-crease-integrated-v1/PAPER.txt",
+    "local_path": "references/historical/01_PAPER.txt",
+    "git_blob": "89596737e3df7783eefe554aca5eebf56ec7e938",
+    "text_companion": true
+  },
+  {
+    "original_url": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/857dd12a75e7278146775698de72f0e1d783c169/archive/riemann/paper/261106-prime-crease-integrated-v1/PAPER.txt",
+    "ref": "857dd12a75e7278146775698de72f0e1d783c169",
+    "repository_path": "archive/riemann/paper/261106-prime-crease-integrated-v1/PAPER.txt",
+    "local_path": "references/historical/02_PAPER.txt",
+    "git_blob": "89596737e3df7783eefe554aca5eebf56ec7e938",
+    "text_companion": false
+  },
+  {
+    "original_url": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/857dd12a75e7278146775698de72f0e1d783c169/archive/riemann/prime-crease/261106-v6/MATHIC.md",
+    "ref": "857dd12a75e7278146775698de72f0e1d783c169",
+    "repository_path": "archive/riemann/prime-crease/261106-v6/MATHIC.md",
+    "local_path": "references/historical/03_MATHIC.md",
+    "git_blob": "f73b40e01752de397787e05e937495d45434ce96",
+    "text_companion": false
+  },
+  {
+    "original_url": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/9e5429344b995004eb25f7f3f35764f1aeb28ad2/archive/riemann/prime-crease/261106-lean-v5/LEAN_VERIFICATION.md",
+    "ref": "9e5429344b995004eb25f7f3f35764f1aeb28ad2",
+    "repository_path": "archive/riemann/prime-crease/261106-lean-v5/LEAN_VERIFICATION.md",
+    "local_path": "references/historical/04_LEAN_VERIFICATION.md",
+    "git_blob": "edca955cc199dfec464a335d3a9c007534fd7f5d",
+    "text_companion": false
+  },
+  {
+    "original_url": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/9e5429344b995004eb25f7f3f35764f1aeb28ad2/archive/riemann/prime-crease/261106-lean-v5/LocalClosure.lean",
+    "ref": "9e5429344b995004eb25f7f3f35764f1aeb28ad2",
+    "repository_path": "archive/riemann/prime-crease/261106-lean-v5/LocalClosure.lean",
+    "local_path": "references/historical/05_LocalClosure.lean.txt",
+    "git_blob": "4db616d84c046847ab779cb10b1d721b5dc5bc33",
+    "text_companion": false
+  },
+  {
+    "original_url": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/9e5429344b995004eb25f7f3f35764f1aeb28ad2/archive/riemann/prime-crease/261106-lean-v5/PrimeCrease.lean",
+    "ref": "9e5429344b995004eb25f7f3f35764f1aeb28ad2",
+    "repository_path": "archive/riemann/prime-crease/261106-lean-v5/PrimeCrease.lean",
+    "local_path": "references/historical/06_PrimeCrease.lean.txt",
+    "git_blob": "82dac96e4d4dc332cce40c5883e9464482cfe85b",
+    "text_companion": false
+  },
+  {
+    "original_url": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/ab33aa82607bda4bcc2ed041e418fb9e1dabb45a/archive/riemann/frontier-formulas/261027-v1/ENIAD_PRIME_ZERO_CORRESPONDENCE_261018_V1/THEOREM.md",
+    "ref": "ab33aa82607bda4bcc2ed041e418fb9e1dabb45a",
+    "repository_path": "archive/riemann/frontier-formulas/261027-v1/ENIAD_PRIME_ZERO_CORRESPONDENCE_261018_V1/THEOREM.md",
+    "local_path": "references/historical/07_THEOREM.md",
+    "git_blob": "f57ca701cac80baa1b43600c5eca83308145b3a5",
+    "text_companion": false
+  },
+  {
+    "original_url": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/ab33aa82607bda4bcc2ed041e418fb9e1dabb45a/archive/riemann/frontier-formulas/261027-v1/HALF_FOLD_CRITICAL_LINE_THEOREM_261019_V1/THEOREM.md",
+    "ref": "ab33aa82607bda4bcc2ed041e418fb9e1dabb45a",
+    "repository_path": "archive/riemann/frontier-formulas/261027-v1/HALF_FOLD_CRITICAL_LINE_THEOREM_261019_V1/THEOREM.md",
+    "local_path": "references/historical/08_THEOREM.md",
+    "git_blob": "ad49d612dc723815184284896a31bcb9b1d54c2d",
+    "text_companion": false
+  },
+  {
+    "original_url": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/ab33aa82607bda4bcc2ed041e418fb9e1dabb45a/archive/riemann/frontier-formulas/261103-reconciliation-mathic-v1/README.md",
+    "ref": "ab33aa82607bda4bcc2ed041e418fb9e1dabb45a",
+    "repository_path": "archive/riemann/frontier-formulas/261103-reconciliation-mathic-v1/README.md",
+    "local_path": "references/historical/09_README.md",
+    "git_blob": "08515bc6755454e24257cba43307aef54f86f491",
+    "text_companion": false
+  },
+  {
+    "original_url": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/ab33aa82607bda4bcc2ed041e418fb9e1dabb45a/archive/riemann/local-closure/261030-v1/MATHIC.txt",
+    "ref": "ab33aa82607bda4bcc2ed041e418fb9e1dabb45a",
+    "repository_path": "archive/riemann/local-closure/261030-v1/MATHIC.txt",
+    "local_path": "references/historical/10_MATHIC.txt",
+    "git_blob": "f3a94b5c7972c34c629bacbf23a4d38b8eba0a72",
+    "text_companion": false
+  },
+  {
+    "original_url": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/ab33aa82607bda4bcc2ed041e418fb9e1dabb45a/archive/riemann/prime-crease/261106-v6/MATHIC.md",
+    "ref": "ab33aa82607bda4bcc2ed041e418fb9e1dabb45a",
+    "repository_path": "archive/riemann/prime-crease/261106-v6/MATHIC.md",
+    "local_path": "references/historical/11_MATHIC.md",
+    "git_blob": "f73b40e01752de397787e05e937495d45434ce96",
+    "text_companion": false
+  },
+  {
+    "original_url": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/ab33aa82607bda4bcc2ed041e418fb9e1dabb45a/archive/riemann/research/261105-depositional-layer-v1/RELATIVE_COORDINATE_ADDENDUM.md",
+    "ref": "ab33aa82607bda4bcc2ed041e418fb9e1dabb45a",
+    "repository_path": "archive/riemann/research/261105-depositional-layer-v1/RELATIVE_COORDINATE_ADDENDUM.md",
+    "local_path": "references/historical/12_RELATIVE_COORDINATE_ADDENDUM.md",
+    "git_blob": "ed7d2067deeadbea089f8338736af3e9fa88167a",
+    "text_companion": false
+  },
+  {
+    "original_url": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/ab33aa82607bda4bcc2ed041e418fb9e1dabb45a/archive/riemann/theorems/261030-perspective-memory-successor-v1/FINDINGS.txt",
+    "ref": "ab33aa82607bda4bcc2ed041e418fb9e1dabb45a",
+    "repository_path": "archive/riemann/theorems/261030-perspective-memory-successor-v1/FINDINGS.txt",
+    "local_path": "references/historical/13_FINDINGS.txt",
+    "git_blob": "62c27799e6da85f00ef2f601c9ee93365d1a20d6",
+    "text_companion": false
+  },
+  {
+    "original_url": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/b7f9752a0708b1dbc580401cebd7d4d60e0b25ed/archive/riemann/paper/261106-prime-crease-reconciled-v2/README.md",
+    "ref": "b7f9752a0708b1dbc580401cebd7d4d60e0b25ed",
+    "repository_path": "archive/riemann/paper/261106-prime-crease-reconciled-v2/README.md",
+    "local_path": "references/historical/14_README.md",
+    "git_blob": "1d0883e2db6e360d68be38c31560374e5a41e74b",
+    "text_companion": false
+  },
+  {
+    "original_url": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/e2f526638db7ba386c3032e74f55e3b9961c192e/archive/riemann/paper/261102-ezpr-v32/PAPER.html",
+    "ref": "e2f526638db7ba386c3032e74f55e3b9961c192e",
+    "repository_path": "archive/riemann/paper/261102-ezpr-v32/PAPER.html",
+    "local_path": "references/historical/15_PAPER.html.txt",
+    "git_blob": "66077bd94762da443c538e72f38ae69e40bfd549",
+    "text_companion": false
+  }
+]

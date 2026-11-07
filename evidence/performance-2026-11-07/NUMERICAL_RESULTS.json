@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "method": "Euler--Maclaurin, N=64, M=12; comparison N=128",
+  "candidates": [
+    {
+      "window": [
+        14.1,
+        14.2
+      ],
+      "candidate_height": 14.134725141734695,
+      "residual": 6.626502598760765e-15,
+      "conjugacy_difference": 0.0,
+      "N64_vs_N128_difference": 4.250846609980486e-15,
+      "nearby_residuals": [
+        0.0007930952480754871,
+        0.0007932255772174363
+      ]
+    },
+    {
+      "window": [
+        21,
+        21.1
+      ],
+      "candidate_height": 21.022039638771542,
+      "residual": 1.6568624101338023e-15,
+      "conjugacy_difference": 0.0,
+      "N64_vs_N128_difference": 1.0696117707682711e-14,
+      "nearby_residuals": [
+        0.0011368990372391738,
+        0.001136779026197656
+      ]
+    },
+    {
+      "window": [
+        25,
+        25.1
+      ],
+      "candidate_height": 25.010857580145696,
+      "residual": 2.607324303790922e-15,
+      "conjugacy_difference": 0.0,
+      "N64_vs_N128_difference": 7.375748002204238e-15,
+      "nearby_residuals": [
+        0.0013715433694518116,
+        0.0013718990055759165
+      ]
+    }
+  ],
+  "rotation_controls": 12,
+  "scope": "Floating-point diagnostics only; no exact root, multiplicity, exhaustive count or RH certification."
+}

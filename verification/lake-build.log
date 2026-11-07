@@ -1,0 +1,18 @@
+ℹ [3730/3731] Built PrimeCrease (3.2s)
+info: PrimeCrease.lean:109:0: 'TryxZipper.cancelled_family_closure' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrimeCrease.lean:110:0: 'TryxZipper.survivor_iff_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrimeCrease.lean:361:0: 'TryxPrimeCrease.bent_zeta_readout' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrimeCrease.lean:362:0: 'TryxPrimeCrease.common_crease' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrimeCrease.lean:363:0: 'TryxPrimeCrease.prime_spectrum_agrees' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrimeCrease.lean:364:0: 'TryxPrimeCrease.aggregate_agrees' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrimeCrease.lean:365:0: 'TryxPrimeCrease.aggregate_simple_pole_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrimeCrease.lean:366:0: 'TryxPrimeCrease.aggregate_residue_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrimeCrease.lean:367:0: 'TryxPrimeCrease.readout_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrimeCrease.lean:368:0: 'TryxPrimeCrease.readout_preserves_analytic_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrimeCrease.lean:369:0: 'TryxPrimeCrease.multiplicity_factor_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrimeCrease.lean:370:0: 'TryxPrimeCrease.full_coverage_iff_placement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrimeCrease.lean:411:0: 'TryxVerifiedLocalClosureV8.prime_local_closure' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrimeCrease.lean:412:0: 'TryxVerifiedLocalClosureV8.bent_local_closure' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrimeCrease.lean:413:0: 'TryxVerifiedLocalClosureV8.signed_readout_local_closure' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrimeCrease.lean:414:0: 'TryxVerifiedLocalClosureV8.vertex_local_closure' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (3731 jobs).

@@ -1,0 +1,13 @@
+AUDIT FINDINGS AND LIMITS
+30 October 2026. Recovered implications and clarifications, not novelty claims.
+
+1. The saved contour certificate contained arithmetic enclosures, exceeding the earlier geometry-only verification. All 128 boundary image disks reproduced exactly.
+2. Reviewed enclosures and winding one support exactly one simple zero in [0.495,0.505] x [14.1297,14.1397]. Symmetry places it on Re(s)=1/2 (critical line, not 'half-line'). Zero-excluding convex image disks preserve winding by homotopy; arithmetic and remainder bounds were reviewed. This is same-implementation replay plus source review, not independent software certification or all-zero coverage. Analytic reference: https://dlmf.nist.gov/25.2#iii
+3. Relative-coordinate comparison needs a declared relation and comparison, not reflection or a receiver.
+4. Comparison may be well-defined for many-to-one transport; exact recovery needs retained originals or additional invertibility.
+5. Historical admission provenance and current read eligibility differ. PROOFS.txt supplies the corrected invariant and read theorem.
+6. Angular halving generally differs from chord halving; doubling viewing distance generally does not halve apparent angular size. Strict angular-size monotonicity requires positive width and distance.
+7. For quarter-turn Q, I=Q/2 and D=2Q give DI=-identity. I inverse is 2 Q inverse, not D.
+8. Oriented-face uniqueness holds for the specified single completing triangle. Arbitrary added closed chains defeat unrestricted uniqueness.
+
+Sixteen proof families were audited individually in sequence under stated premises. This does not certify every body in the terminology inventory. Locks unchanged; tests and bulk data stay local. Listing/delisting follows separately.

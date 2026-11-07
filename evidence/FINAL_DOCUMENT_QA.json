@@ -1,0 +1,38 @@
+{
+  "paper/PAPER.pdf": {
+    "pages": 27,
+    "valid_internal_destinations": 435,
+    "valid_local_uri_routes": 11,
+    "private_or_host_file_uri": 0
+  },
+  "mathic/MATHIC_READER.pdf": {
+    "pages": 18,
+    "valid_internal_destinations": 0,
+    "valid_local_uri_routes": 6,
+    "private_or_host_file_uri": 0
+  },
+  "docx": {
+    "valid_internal_links": 405,
+    "bookmarks": 262,
+    "preserved_parts": 28
+  },
+  "protected_files_unchanged": [
+    "lineage/paper-2026-11-06/PAPER.pdf",
+    "lineage/paper-2026-11-06/PAPER.docx",
+    "lineage/paper-2026-11-06/PAPER.txt",
+    "lineage/paper-2026-11-06/LOCK.json",
+    "mathic/MATHIC.pdf",
+    "mathic/MATHIC.md",
+    "mathic/LOCK.json",
+    "lean/PrimeCrease.lean",
+    "lean/lakefile.toml",
+    "lean/lake-manifest.json",
+    "lean/lean-toolchain",
+    "verification/lean-compile.log",
+    "verification/lake-build.log",
+    "LEAN_VERIFICATION_CURRENT.md"
+  ],
+  "active_lean_files": 1,
+  "lean_rerun": false,
+  "toc_destinations_match_cached_pages": 28
+}

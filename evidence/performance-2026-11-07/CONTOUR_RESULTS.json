@@ -1,0 +1,13 @@
+{
+  "all_segment_disks_replayed": true,
+  "segments": 128,
+  "certificate_sha256": "e399e1d4b2ed2d006174e7a55366e6ca501c2dc88d29388003adc5164c6218da",
+  "elapsed_seconds": 265.20170998573303,
+  "fresh_run": true,
+  "geometry_result": "PASS",
+  "winding": 1,
+  "lean_rerun": false,
+  "launcher": "Python 3.9 compatibility loader defers type annotations for the exact unchanged RATIONAL, KERNEL, RUNTIME and ZETA source bytes. Arithmetic operations and certificate comparisons are unchanged.",
+  "bounded_conclusion": "Under the reviewed analytic enclosure bounds and argument principle: exactly one simple zeta zero in the rectangle interior; reflection-invariant uniqueness fixes its real part at one-half.",
+  "scope": "Fresh exact replay in the retained implementation, not an independent enclosure implementation, independent kernel check, or universal RH result."
+}

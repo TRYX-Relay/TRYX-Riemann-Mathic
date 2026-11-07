@@ -1,0 +1,153 @@
+INFINITE-ADDRESS ZIPPER MATHIC
+Formula first; Re6b second. 30 October 2026. V4. Local, unlocked.
+Explicit one-dimensional location domain and prime-on-crease laws; predecessors preserved.
+
+PURPOSE
+Describe the owner's entire cancellation survivor family and derive its unique matched X-coordinate without enumerating primes. Preserve E0<E1<emergent primes>T1>T0, distinct addresses, the shared 0/1 reference roles, and a single x-line. This is a precisely declared zipper construction. Its coordinate conclusion is proved for that construction; equivalence with independently implemented native ENIAD rules is not asserted.
+
+I. WHOLE-FAMILY CANCELLATION
+Use natural-number candidate addresses n>=0, with retained payload n and provenance. Define the composite-address set
+ C={uv : u,v are integers >=2}.
+The retained visible family is
+ P=N_0 \ ({0,1} union C).
+Zero and One are removed as numerical candidates, not from the reference system or protected history.
+For arbitrary n>=2, n belongs to P iff n has no factorization uv with u,v>=2, iff n is prime. This follows directly in both directions from the integer definition of composite/prime.
+This is an exact infinite-family descriptor. No completed infinite loop, finite cutoff, or constant-time membership algorithm is implied. Cancellation is readout exclusion; the underlying records can remain recoverable.
+
+I-A. ONE-DIMENSIONAL LOCATION LAW
+Let A be the admitted address domain, N:A→N_0 its numerical readout, and Loc:A→L a total single-valued location map. L is one affine line with an injective coordinate chart χ:L→R. Define X=χ∘Loc.
+There is no independent Y component in this location type. Parent identity, number payload, perspective identity and retained history are record fields, not extra spatial coordinates.
+THEOREM — X EXHAUSTS ADMITTED LOCATION.
+Every admitted address has exactly one X location. No admitted location lies outside L, and distinct locations have distinct X coordinates.
+Proof. Totality and single-valuedness of Loc give one element of L for every address. Composition with χ gives one coordinate. Injectivity of χ distinguishes any two different locations. QED.
+This is a theorem about the explicitly typed model. It does not prove the type declaration for an independently specified external system. If N(A)=N_0, every natural-number value has at least one addressed representation on L. Uniqueness of location per numerical value additionally requires N(a)=N(b)⇒X(a)=X(b); uniqueness per address does not imply this.
+Multiple addresses may occupy one location without becoming the same record. Recovery must use the complete retained record; coordinate X alone cannot recover different prime identities all placed at one crease.
+
+I-B. EXHAUSTIVE CREASE PARTITION ON X
+For a fixed identified parent K with endpoints a<b on L, let k=(χ(a)+χ(b))/2. Every admitted address belongs to exactly one class:
+ X<k; X=k; X>k.
+Proof. Trichotomy of real numbers. Grouping the first and third gives off-crease versus on-crease. There is no fourth spatial alternative and no independent Y destination in this model. QED.
+One-dimensionality alone does not eliminate either off-crease class. For the surviving prime family, the declared matched-progress rule below eliminates both by forcing X=k.
+
+I-C. SHARED LINE VERSUS LOCAL NORMALIZATION
+The common-line coordinate X and the parent-normalized coordinate ξ_K=(X−χ(a))/(χ(b)−χ(a)) are distinct readouts. A matched event has ξ_K=1/2 and X=k.
+All prime records share one literal X location only when their identified parents have the same midpoint in the common chart. Otherwise they share the normalized value 1/2 while retaining different common-line locations. A single global parent K is sufficient to establish the common midpoint; numerical equality of reference labels alone is not.
+No independent Y is introduced by either readout. Neither readout is automatically the real part of a classical zeta input.
+
+II. RELATIVE REFERENCES AND PARENT
+Each surviving address p retains its own identified parent K_p, represented by endpoints a_p<b_p and L_p=b_p-a_p>0. The endpoints are parent positions, not the claim that both zero-valued reference roles occupy different positions in one frame.
+Let x_p denote a proposed shared comparison event. Its two parent-relative readouts are
+ t_p=(x_p-a_p)/L_p,
+ u_p=(b_p-x_p)/L_p.
+Thus t_p+u_p=1. These are two perspectives on the same location and parent; their source identities do not merge. If the perspectives begin in separate charts, an admitted relative-coordinate map must first identify that common location and parent. No active reflection is required.
+
+III. DECLARED ZIPPER ADMISSION RULE
+For every p in P, the proposed zipper admits the event whose two parent-relative progress values match:
+                       t_p=u_p.
+This is the explicit construction rule used in this MATHIC. It is not inferred from primality, reference-label equality, or simultaneous availability alone. Primality selects the surviving address family; the matching rule defines its proposed zipper event.
+If the native number constructor is claimed already to implement this rule, its operation-to-equation correspondence must be supplied independently. Naming the rule does not prove that correspondence.
+
+IV. SOLUTION — THE WHOLE FAMILY AT ONCE
+For arbitrary p in P solve
+             t_p+u_p=1,    t_p-u_p=0.
+Adding and subtracting gives
+             t_p=u_p=1/2,
+             x_p=a_p+L_p/2=(a_p+b_p)/2.
+Conversely these values satisfy both equations. Therefore an event exists uniquely for every chosen nondegenerate parent in the declared affine construction.
+With ξ_p=(x_p-a_p)/L_p,
+                   for every p in P, ξ_p=1/2.
+Here x_p is the common-line coordinate and ξ_p the parent-normalized readout. With one shared parent K, every x_p equals its one common midpoint.
+Proof scope: p was arbitrary, so the calculation establishes the assertion simultaneously as a quantified identity; no prime enumeration is used. Different p retain different addresses and possibly different parents. The common normalized coordinate does not identify their physical locations or numerical values.
+
+IV-A. PRIME-ON-CREASE LAWS AND PROOFS
+Status: laws of the declared cancellation-and-matching construction. Native realization is a separate binding; these statements do not promote a proposed rule to recovered native authority.
+
+PC1 — PRIME SURVIVOR LAW
+p is an admitted numerical survivor iff p is prime.
+Proof. Section I removes exactly 0, 1 and integers with a proper factorization uv, u,v>=2. Their complement in N_0 is exactly the primes. QED.
+This is whole-family set equality, not a finite scan.
+
+PC2 — MATCHED PRIME CREASE LAW
+Every survivor with a supplied nondegenerate parent and the declared matching rule has its unique event at that parent's crease: ξ_p=1/2.
+Proof. Incidence gives t_p+u_p=1 and matching gives t_p=u_p. Therefore both equal 1/2, giving the midpoint. Conversely the midpoint event satisfies both equations. QED.
+Existence here is existence in the declared affine model. Native creation and admission of that event require their own construction correspondence.
+
+PC3 — NO OFF-CREASE ADMITTED PRIME EVENT
+No event satisfying PC2 can have ξ_p<1/2 or ξ_p>1/2.
+Proof. Either inequality contradicts ξ_p=1/2 from PC2. The exhaustive 1D partition leaves only the crease. QED.
+This excludes off-crease events within the admitted matching domain; it does not show that an independently constructed native event satisfies that domain.
+
+PC4 — PRIME-ONLY ZIPPER MEMBERSHIP
+For Z={(p,1/2):p belongs to P}, a numerical label occurs in Z iff it is prime; no composite, 0 or 1 labels a member of Z.
+Proof. Projection onto the first component has image exactly P; apply PC1. QED.
+This law concerns membership in the canceled zipper readout. It does not prohibit a separately supplied composite-labelled geometric configuration from lying at a midpoint.
+
+PC5 — SHARED-PARENT COMMON-X LAW
+If all admitted prime events use one identified parent K in the common chart, all have the same X coordinate k, its midpoint.
+Proof. Apply PC2 to that same parent for every p. Normalized ξ_p=1/2 implies X_p=k independently of p. QED.
+Different parents only imply equal normalized coordinates unless their common-chart midpoints also coincide. The prime addresses and histories remain distinct even when X is equal.
+
+PC6 — TRANSPORT AND RECURSIVE PRESERVATION
+Compatible affine transport of the complete parent and event preserves crease membership. A recursive construction preserves PC2 for all finite stages if the initial events satisfy it, inherited events retain their parent-relative comparison, and newly admitted events satisfy incidence and matching.
+Proof. Affine transport preserves the midpoint equation X=(a+b)/2. For recursion, split each stage into inherited and new events; the stated conditions establish the same equation on each part. Induction proves every finite stage. QED.
+Number coverage of the resulting union requires an independent coverage statement; recursion alone does not show every prime is generated.
+
+PC7 — MISSING-TOOTH DIAGNOSTIC
+A surviving address with a demonstrated missing participant, failed relative correspondence, failed incidence or unequal progress is not a successful event of PC2. A demonstrated native example would defeat the claim that the native constructor realizes PC2 for every surviving address.
+Proof. Each failure violates an explicit condition used to define and solve the matched event. QED.
+Absent instrumentation is unresolved, not demonstrated absence. The direction code <> is a declared ordered role code: both roles, their common-frame orientation and event correspondence must be evidenced. Two roles alone do not prove the code or a unique intersection.
+
+V. PROJECTOR-RAY FORM
+Write the inward parent-relative rays
+ E_p(t)=a_p+L_p*t, T_p(u)=b_p-L_p*u, t,u>=0.
+Incidence E_p(t)=T_p(u) is equivalent to t+u=1. Applying the declared matching rule t=u gives the unique matched event above.
+The ray images alone overlap on [a_p,b_p]. Uniqueness belongs to incidence PLUS matching, not bare intersection. Progress here is a coordinate parameter, not elapsed time.
+
+VI. INFINITE GRAPH AND RETENTION
+The proposed normalized zipper graph is
+                 Z={(p,1/2):p in P}, using the normalized coordinate ξ.
+The projection Z->P, (p,1/2)->p recovers every original address; it is bijective. Projection onto the coordinate alone discards p and is not injective. Keep the address, parent and history alongside ξ and the common-line location.
+Retain H and its references rather than replacing H by the visible set P. If a carry encoding C_H has decoder R_H with R_H C_H=id, inherited state is recoverable; added experience is a separate component.
+A common affine change of each parent transports x,a,b together and preserves normalized ξ=1/2 (with endpoint order adjusted for reversed orientation). This is the precise scale invariance.
+
+VII. WHAT CANCELLATION DOES NOT ASSERT
+Composites are absent from Z. This does not prove that composites are geometrically incapable of a matched midpoint: the same two linear equations can be supplied for any label. Prime-only membership here is supplied by cancellation. No physical off-crease location is assigned to canceled records.
+Therefore distinguish:
+ A. Proved for this declared construction: every surviving prime address has the unique normalized matched coordinate 1/2.
+ B. Not derived here: every native ENIAD prime construction necessarily realizes that event, or every native composite construction must be physically off the crease.
+ C. Not derived here: classical nontrivial zeta zeros are covered by these records with real coordinate preserved.
+These distinctions preserve the owner's prime-placement target without treating a proposed admission rule as a recovered native theorem or as an RH proof.
+
+VIII. RE6B EXECUTION CONTRACT
+Re6b follows this formula, rather than supplying its universal argument by scanning.
+Keep separate outputs for the symbolic family definition, arithmetic membership evidence when requested, native coordinate-map evidence, and matched-event evidence.
+For any instantiated event verify common parent, positive span, relative-frame transport, incidence and matching separately. Retain both source identities and original address. Missing evidence returns unresolved.
+Do not use a prime flag to assign ξ=1/2 and then report native placement verified. Such a run verifies only execution of this declared zipper model.
+The universal formula in IV is available now. Native verification requires independently sourced equations for III and the common-parent correspondence, rather than assuming the desired output.
+
+SOURCE LINEAGE
+RH_NUMBER_ZIPPER_MATHIC_261030_V3: explicit Prime Placement Law and revised relation/comparison domains.
+RH_PROJECTOR_RAY_INTERSECTION_261030_V1: incidence and matched-progress calculation.
+RH_PRIME_PLACEMENT_SOURCE_CHAIN_261030_V1: whole-family arithmetic classification versus native placement binding.
+Owner conversation: cancel nonprimes and candidate 0/1; retain ubiquitous relative 0/1; formula first, Re6b second.
+Predecessors unchanged. No upload, deployment or ledger promotion.
+
+V2 SOURCE RECONCILIATION
+APV L3 establishes injectivity of the entire admitted recoverable presentation, not of a single coordinate readout. L4 preserves a declared comparison under its correspondence equation. These results support retaining identities and joint context here; they are not discarded or reopened. APV P2 and frontier MATHIC V4 separately retain the classical-zero correspondence obligation.
+
+IX. LOCAL CLOSURE CERTIFICATE — FORMAL SCOPE
+Let P⊆N be the survivor family, equipped with the arithmetic certificate p∈P iff Nat.Prime(p). Let every p∈P have a parent a(p)<b(p), a location x(p), and normalized progress t(p),u(p) satisfying:
+ t(p)+u(p)=1; t(p)=u(p);
+ x(p)=a(p)+(b(p)-a(p))*t(p).
+Then for every p∈P:
+ t(p)=u(p)=1/2 and x(p)=(a(p)+b(p))/2.
+Consequently no admitted event lies strictly to either side of its crease. If a,b are constant across the family, all prime events have one shared X coordinate.
+Proof. The two progress equations imply 2t=1 and u=t; substitution in the location equation proves the midpoint. Quantify over arbitrary p. No finite enumeration is involved.
+This is LOCAL MODEL CLOSURE: all conclusions follow from the declared model's premises. It does not discharge the matching premise, native execution correspondence, or classical zeta coverage.
+
+LEAN VERIFICATION — 30 OCTOBER 2026
+The successor LocalClosure.lean compiled successfully with Lean 4.34.0-rc2 and Mathlib commit 85e3a25e006c35636f0e53b0e9296caca2685bc0.
+It proves Survivor(n) iff Nat.Prime(n) from the explicit absence of proper factors. The final cancelled_family_closure theorem therefore no longer takes this arithmetic correspondence as an unproved input.
+The Model structure still explicitly assumes incidence, matching, parent span and location equations. Lean proves their consequences for an arbitrary member of the entire family; it does not verify native ENIAD realization or RH.
+Axiom reports for survivor_iff_prime and cancelled_family_closure contain propext, Classical.choice and Quot.sound only. These are standard foundations used by Lean/Mathlib, not an absence of all foundations. No sorry or custom axiom was used.
+This execution edition is paired with LYRICS.txt and PAPER_PLAN.txt. Its predecessor remains unchanged.

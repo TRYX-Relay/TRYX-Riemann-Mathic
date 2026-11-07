@@ -1,0 +1,83 @@
+RIEMANN REPAIR CHECKLIST
+7 November 2026 — Version 2
+
+Purpose: prepare a coherent public Riemann publication with the paper, MATHIC,
+README, RE6B and zeta sniffer. Document repairs are complete in a dated successor. This checklist does not enlarge the mathematical claims.
+
+AUTHORITY AND PRESERVATION
+[x] R01. Use the audited reconciled V8.1 publication ZIP as the predecessor.
+    Source commit: 7c5443938bb39e59d2c36ddec85c80f7a6649e58.
+    ZIP Git blob: ff3e1754f97c04283712d0b6564f6a5a392e5aac.
+[x] R02. Preserve the paper PDF, Word and text, MATHIC PDF and source, both lock
+    records, active Lean file, pinned build files and successful verification logs.
+[x] R03. Work in a dated successor; retain original README, guide and citation
+    metadata under lineage. Retain the original theorem locks; identify this as a publication successor.
+
+FIRST PUBLICATION REPAIR
+[x] R04. Link all five components directly from the root README.
+[x] R05. Add a prominent correction to paper page 27: current reproduction uses
+    one consolidated PrimeCrease.lean, not the historical two-file V5 workflow.
+[x] R06. Reconcile the earlier pending-build statement with the applicable saved
+    successful build; retain exact verification scope and written Theorems 4–6.
+[x] R07. Add the retrieved contour certificate, arithmetic implementation, exact
+    geometry verifier, original generator provenance and saved 7 November result.
+[x] R08. Supply a portable standard-library replay command without host-specific
+    paths. Check hashes and geometry, then verify the launcher with one disk.
+    Keep that check separate from the saved successful full 128-disk replay.
+[x] R09. Map all 17 private-repository PDF links to bundled historical reading
+    copies: 15 citation targets, including one text companion of an older PDF.
+    Identify historical sources as references, not active theorem selections.
+[x] R10. Add a paper–MATHIC topic map and guide-level definition routes, following
+    the useful reading structure of the adopted Collatz package.
+[x] R11. Make RE6B V3 the explicit runnable entry. Isolate incomplete V15 as inert
+    source text and identify its missing dependencies.
+[x] R12. Make the included local sniffer the default entry. Identify the older
+    hosted route's unverified anonymous-access status.
+[x] R13. Check active relative links, PDF page destinations, preserved file hashes,
+    the single active Lean-file count and unchanged runnable instrument bytes.
+[x] R14. Save a repair status, file manifest and working successor ZIP. Record the
+    outstanding public-release work without substituting a private citation URL.
+
+NEXT DOCUMENT REPAIR
+[x] R15. Produce a versioned paper PDF/Word/text successor integrating the current
+    Section Q instructions and dated contour-evidence status. Completed PDF,
+    Word and text, 27 pages; original edition preserved under lineage.
+[x] R16. Add internal definition links and useful return routes inside that PDF;
+    retain readable printed page and section references. Render and inspect the
+    changed pages, equations, tables and figures. All 27 pages inspected;
+    435 valid PDF destinations and 28 corrected contents-page routes checked.
+[x] R17. Update embedded source links in the PDF successor to the selected public
+    routes or stable included reference routes. All 17 source-link annotations
+    in the two reader PDFs use bundled routes; originals preserve provenance.
+
+PUBLIC RELEASE GATES
+[x] R18. Select the public destination and canonical release URL. Publish only the
+    selected Riemann release materials and required supporting references.
+    Destination: https://github.com/TRYX-Relay/TRYX-Riemann-Mathic
+[x] R19. Set final citation metadata and reconcile README, guide, paper, MATHIC,
+    instrument versions and evidence status against that exact release candidate.
+[ ] R20. Check the actual public download and reading links without account access.
+    If a hosted instrument is advertised, verify it anonymously as well.
+[ ] R21. Complete the final release audit, record exact hashes and issue the
+    versioned publication/ledger receipt for the accepted candidate.
+
+RULE FOR LEAN
+Do not rerun Lean unless the proof source, imports, pinned dependencies, toolchain
+or relevant build settings have changed, or the saved verification cannot be
+matched to the selected source. Documentation and packaging alone do not make
+the checked formal source stale. No Lean run was performed in this repair.
+
+RESEARCH FRONTIER — RETAINED, NOT A REQUIREMENT TO PUBLISH A SCOPED PAPER
+- Universal d = Re(rho) - 1/2 = 0 remains unproved.
+- Admission of every original zeta zero to a matching prime-record model is not
+  established by the admitted-family midpoint theorem.
+- Written Theorems 4–6 and the bounded contour argument have the formal scope
+  recorded in the source; no new formalization or independent kernel is claimed.
+- Numerical sniffer results, replay counts and shared-coordinate identities
+  retain their stated domains and do not establish full RH closure.
+
+START HERE
+packet/README.md
+packet/ERRATA_AND_CURRENT_STATUS.md
+packet/READERS_GUIDE.md
+packet/evidence/contour/README.md

@@ -1,0 +1,42 @@
+{
+  "status": "CURRENT_NOT_STALE",
+  "checked_date": "2026-11-07",
+  "prior_verified_commit": "75e8bd0e9250f0108e27bf158769a11062357cd1",
+  "current_checked_commit": "7c5443938bb39e59d2c36ddec85c80f7a6649e58",
+  "comparison": [
+    {
+      "path": "lean/PrimeCrease.lean",
+      "sha": "58b8805c96273884ca367ca7c5cc01824d213fcb",
+      "error": false
+    },
+    {
+      "path": "lean/lakefile.toml",
+      "sha": "6060f42dbded8bf42d32b7e7ae5e5c327b5cbcd5",
+      "error": false
+    },
+    {
+      "path": "lean/lake-manifest.json",
+      "sha": "68987936459396c6f724b283c7952c33f45fe3c7",
+      "error": false
+    },
+    {
+      "path": "lean/lean-toolchain",
+      "sha": "b814d987e0c93cb99938be934d9b277778495ba1",
+      "error": false
+    },
+    {
+      "path": "verification/lean-compile.log",
+      "sha": "a7a85ac544d86bf60222d9eb098d4ed8b11dc27e",
+      "error": false
+    },
+    {
+      "path": "verification/lake-build.log",
+      "sha": "c820851f859b8f66868756211c20e490c220e99f",
+      "error": false
+    }
+  ],
+  "all_six_git_blobs_identical": true,
+  "lean_rerun": false,
+  "reason": "Proof source, pinned dependency manifest, build configuration, toolchain declaration, and both successful verification logs are byte-identical to the locked verified V8 predecessor. V8.1 changes prose only.",
+  "scope": "Reused recorded Lean verification; no new compiler run or independent kernel check."
+}

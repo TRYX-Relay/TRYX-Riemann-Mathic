@@ -1,0 +1,18 @@
+{
+  "real": [
+    "0.495",
+    "0.505"
+  ],
+  "imag": [
+    "14.1297",
+    "14.1397"
+  ],
+  "width": "1/100",
+  "criterion": "Closed pole-free contour, whole-boundary exclusion, exact winding1; parent containment",
+  "scope": "Known first-zero calibration, not independent native prediction",
+  "parent_certificate_sha256": "ee605b80396fe3da9cc1a786c852f3442f993abf5def6d1d58418a2c3d4484f6",
+  "source_hashes": {
+    "CERTIFY.py": "8a2378a3dbcbbf954d40efcc6cfa0bd62293c0777b7771a9c731d4e0657f9b03",
+    "VERIFY.py": "9a627c98d1350e19c76b6a8182da9ef6aa2cb3a92f7b5e99ea98b13b7600dbc5"
+  }
+}

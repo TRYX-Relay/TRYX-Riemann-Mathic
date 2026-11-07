@@ -1,0 +1,26 @@
+{
+  "input_and_geometry": {
+    "input_hashes": "PASS",
+    "geometry": {
+      "exact_geometry_checks": "PASS",
+      "winding": 1,
+      "segments": 128,
+      "arithmetic_replayed": false
+    },
+    "arithmetic_replayed": false
+  },
+  "launcher_sample": {
+    "certificate_sha256": "e399e1d4b2ed2d006174e7a55366e6ca501c2dc88d29388003adc5164c6218da",
+    "verified_disks": 1,
+    "certificate_disks": 128,
+    "all_segment_disks_replayed": false,
+    "exact_geometry_checks": "PASS",
+    "winding": 1,
+    "elapsed_seconds": 1.9887254579999998,
+    "scope": "Retained implementation and reviewed analytic enclosure bounds; bounded rectangle only."
+  },
+  "date": "2026-11-07",
+  "full_replay_repeated_for_packaging": false,
+  "lean_rerun": false,
+  "interpretation": "New portable launcher checks only; saved earlier full 128-disk replay is retained separately."
+}

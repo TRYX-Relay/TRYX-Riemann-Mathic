@@ -1,0 +1,52 @@
+{
+  "paper_pages": 27,
+  "mathic_reader_pages": 18,
+  "mathic_original_pages": 17,
+  "paper_external_file_routes_repaired": [],
+  "mathic_private_links_repaired": [
+    {
+      "page": 16,
+      "old": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/857dd12a75e7278146775698de72f0e1d783c169/archive/riemann/paper/261106-prime-crease-integrated-v1/PAPER.pdf",
+      "target": "../references/historical/01_PAPER.txt"
+    },
+    {
+      "page": 16,
+      "old": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/857dd12a75e7278146775698de72f0e1d783c169/archive/riemann/paper/261106-prime-crease-integrated-v1/PAPER.txt",
+      "target": "../references/historical/02_PAPER.txt"
+    },
+    {
+      "page": 16,
+      "old": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/ab33aa82607bda4bcc2ed041e418fb9e1dabb45a/archive/riemann/theorems/261030-perspective-memory-successor-v1/FINDINGS.txt",
+      "target": "../references/historical/13_FINDINGS.txt"
+    },
+    {
+      "page": 16,
+      "old": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/ab33aa82607bda4bcc2ed041e418fb9e1dabb45a/archive/riemann/frontier-formulas/261103-reconciliation-mathic-v1/README.md",
+      "target": "../references/historical/09_README.md"
+    },
+    {
+      "page": 16,
+      "old": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/857dd12a75e7278146775698de72f0e1d783c169/archive/riemann/prime-crease/261106-v6/MATHIC.md",
+      "target": "../references/historical/03_MATHIC.md"
+    },
+    {
+      "page": 17,
+      "old": "https://github.com/TRYX-Relay/TRYX-MATHIC/blob/b7f9752a0708b1dbc580401cebd7d4d60e0b25ed/archive/riemann/paper/261106-prime-crease-reconciled-v2/README.md",
+      "target": "../references/historical/14_README.md"
+    }
+  ],
+  "numeric_figure_definition_hotspots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "original_mathic_content_streams_unchanged": true,
+  "lean_rerun": false
+}

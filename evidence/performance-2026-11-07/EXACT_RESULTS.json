@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "prime_window": [
+    0,
+    1000
+  ],
+  "prime_survivors": 168,
+  "independent_sieve_agrees": true,
+  "matched_parents": 5,
+  "affine_cases": 60,
+  "valid_recursive_stages": 9,
+  "exact_history_recovery": true,
+  "path_inverse_cases": 81,
+  "full_address_roundtrips": 35,
+  "reference_change_cases": 21,
+  "negative_path_rejected": true,
+  "nonzero_mirror_sum_control": true,
+  "common_frame_required_control": true,
+  "scope": "Finite implementation controls; universal statements rely on their quantified proofs."
+}

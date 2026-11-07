@@ -1,0 +1,28 @@
+{
+  "edition": "Paper publication successor 2026-11-07",
+  "modified_paragraph_indices": [
+    6,
+    205,
+    261,
+    262,
+    283,
+    287,
+    357,
+    358,
+    360,
+    361
+  ],
+  "definition_links_added": 301,
+  "definition_return_routes": 35,
+  "private_relationships_rerouted": 11,
+  "untouched_ooxml_parts_preserved": 28,
+  "changed_ooxml_parts": [
+    "word/document.xml",
+    "word/_rels/document.xml.rels"
+  ],
+  "all_unmodified_paragraph_text_preserved": true,
+  "all_media_styles_headers_footers_preserved": true,
+  "lean_rerun": false,
+  "toc_pages_updated": 28,
+  "subtitle_dated": true
+}

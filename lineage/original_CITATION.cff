@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Cite the abstract-clarified paper and MATHIC V8.1; identify their locked publication revision."
+type: article
+title: "Euler-Zeno in Prime Relatives with Prime Crease"
+authors:
+  - family-names: Gattenby
+    given-names: Virgil Lee
+date-released: 2026-11-06
+version: "27-page abstract-clarified paper with MATHIC V8.1"
+url: "https://github.com/TRYX-Relay/TRYX-MATHIC/tree/794bf7f6a3ea7f47aa9ee4b938bf990134533608/archive/riemann"

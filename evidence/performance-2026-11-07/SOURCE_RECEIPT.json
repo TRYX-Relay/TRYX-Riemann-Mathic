@@ -1,0 +1,35 @@
+{
+  "repository": "TRYX-Relay/TRYX-MATHIC",
+  "commit": "7c5443938bb39e59d2c36ddec85c80f7a6649e58",
+  "path": "archive/riemann/prime-crease/261106-v8_1-explicit-closure-locked/",
+  "files": [
+    {
+      "path": "MATHIC.md",
+      "git_blob": "668cbb0d6bfbcd33f57e419ff64e2b88796937eb"
+    },
+    {
+      "path": "LOCK.json",
+      "git_blob": "99c304a0fad94a0cc99494dd45a17dcc4cb0df5f"
+    },
+    {
+      "path": "SINGLE_LEAN_VERIFICATION.md",
+      "git_blob": "7e1eca0322253a2b90c31b87f41a3099bfd867ae"
+    },
+    {
+      "path": "lean/PrimeCrease.lean",
+      "git_blob": "58b8805c96273884ca367ca7c5cc01824d213fcb"
+    },
+    {
+      "path": "lean/lakefile.toml",
+      "git_blob": "6060f42dbded8bf42d32b7e7ae5e5c327b5cbcd5"
+    },
+    {
+      "path": "lean/lake-manifest.json",
+      "git_blob": "68987936459396c6f724b283c7952c33f45fe3c7"
+    },
+    {
+      "path": "lean/lean-toolchain",
+      "git_blob": "b814d987e0c93cb99938be934d9b277778495ba1"
+    }
+  ]
+}

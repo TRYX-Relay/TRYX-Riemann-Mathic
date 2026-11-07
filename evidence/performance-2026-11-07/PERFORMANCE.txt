@@ -1,0 +1,141 @@
+PERFORMANCE RETURN: PASS WITHIN THE DECLARED LOCAL-CLOSURE SCOPE
+
+Fresh execution: 128/128 boundary image disks exactly reproduced; contour
+geometry PASS with winding one. Prime selection over 0-1000 agrees with an
+independent sieve (168 survivors). Five parent controls, 60 affine cases, nine
+recursive stages, 81 path inverse cases and 35 full-address roundtrips passed.
+Three floating-point candidate heights are approximately 14.134725141734695,
+21.022039638771542 and 25.010857580145696; their residuals are below 7e-15.
+These numerical residuals are diagnostics, not exact zero certificates.
+
+Lean was NOT rerun: all six relevant source, environment and verification-log
+blobs match the previously verified locked predecessor. Recorded verification
+is current for this unchanged formal source and pinned environment.
+
+The locally retrieved contour certificate was freshly replayed. The MATHIC's
+statement that the certificate was unretrieved described its originating
+workspace; this performance supplies local evidence without altering its text.
+The replay needed deferred annotation evaluation on Python 3.9; original
+arithmetic source bytes, operations and expected certificate disks were preserved.
+
+RESULT FILES
+SOURCE_RECEIPT.json: pinned GitHub source identities.
+LEAN_FRESHNESS.json: exact comparison supporting reuse of Lean verification.
+EXACT_RESULTS.json: finite rational controls.
+NUMERICAL_RESULTS.json: fresh floating-point diagnostics.
+GEOMETRY_RESULTS.json: fresh exact contour geometry check.
+CONTOUR_RESULTS.json: fresh 128-disk replay and scope.
+source/: exact locked source and prior verification logs.
+evidence/: copied certificate, arithmetic implementation and execution evidence.
+
+RIEMANN MATHIC V8.1 — MATHEMATICAL PERFORMANCE REVIEW
+7 November 2026, America/Anchorage
+
+Source: TRYX-Relay/TRYX-MATHIC, commit 7c5443938bb39e59d2c36ddec85c80f7a6649e58,
+archive/riemann/prime-crease/261106-v8_1-explicit-closure-locked/MATHIC.md.
+The exact retrieved Git blob is 668cbb0d6bfbcd33f57e419ff64e2b88796937eb.
+The locked edition is preserved. This document records an execution and review,
+not a replacement edition or a GitHub/ledger publication.
+
+VPA RETURN
+V0: the locked V8.1 statements and admitted domains.
+P0: distinguish prime-label selection, admitted geometric records, the signed
+crease readout, and full original-zero addresses.
+A0: review the nine proofs and eighteen questions; execute exact finite controls,
+floating-point diagnostics, and the bounded contour checks; inspect whether the
+recorded Lean verification remains applicable.
+V1: local closure follows on the stated admitted domains. Full original-zero
+recovery retains both Y and d. Universal removal of d remains an open premise.
+
+LEAN VERIFICATION FRESHNESS
+No Lean proof compilation or Lake build was rerun. At the prior verified V8
+commit 75e8bd0e9250f0108e27bf158769a11062357cd1, the proof source, lakefile,
+dependency manifest, toolchain declaration, compiler log and build log have the
+same six Git blob identities as current V8.1. The preserved logs report a
+successful warnings-as-errors compilation and a successful 3,731-job Lake build.
+The declared environment remains Lean 4.34.0-rc2 with pinned Mathlib revision
+85e3a25e006c35636f0e53b0e9296caca2685bc0. This reuse concerns the recorded
+environment and exact source; it is not a fresh audit of every local cache file.
+See LEAN_FRESHNESS.json and source/verification/.
+
+NINE-THEOREM REVIEW
+1. Survivor equivalence: excluding 0, 1 and all products u*v with u,v>=2 gives
+   exactly the prime labels. The divisor argument works in both directions.
+2. Matched midpoint: incidence t+u=1 and matching t=u force t=u=1/2;
+   substitution into location forces x=(a+b)/2. Those values give existence
+   as well as uniqueness.
+3. Prime-family closure: apply theorem 2 to an arbitrary admitted prime record.
+   Absolute X=1/2 additionally requires the stated shared parent-midpoint
+   condition. Retaining the label p preserves identity despite equal coordinates.
+4. Affine preservation: transporting endpoints and event by one nonconstant
+   affine map preserves their midpoint. Negative scale reverses endpoint order;
+   reordering exchanges relative readings without destroying matching.
+5. Recursive preservation: valid inheritance plus valid admission proves stage
+   validity by induction. Membership in the union implies membership at a finite
+   stage. Coverage of every prime still needs its separate coverage premise.
+6. Recoverable carry: a left inverse implies injectivity by applying the decoder
+   to equal encoded states. This concerns the declared inherited-state domain.
+7. Turned leg: the Euclidean unit bisector has X=1/2. The nonnegative bent path
+   reaches C(0) at distance 1/2 and returns C(Y) at distance 1/2+Y for Y>=0.
+   Imaginary-part recovery proves signed-chart injectivity and its stated range.
+8. Critical-line readout: F(Y)=zeta(C(Y)) gives exactly the zeros on this chart.
+   The local holomorphic change of parameter has derivative i!=0, so it preserves
+   analytic order. This is a statement about crease zeros on the declared domain.
+9. Original-zero recovery: the prime-power series identity is used first in
+   Re(s)>1. Its continued logarithmic derivative has local expansion
+   -m/(s-rho)-g'(s)/g(s) at an arbitrary finite-order zero. Its poles in the strip
+   are precisely the original zeros and its residues recover multiplicities.
+
+Theorems 4-6 retain written proofs. Their finite controls in this performance
+do not turn those written proofs into newly compiled declarations. The formal
+correspondence table and prior source verification are retained as supplied.
+
+EIGHT CHALLENGE RETURNS
+t.1: exact survivor and matched-placement controls agree. The absolute-placement
+     control correctly rejects inference from equal relative halves alone.
+t.2: vertex and inverse controls agree; negative bent-path distance is rejected.
+t.3: full-address roundtrips retain d; Y-only recovery agrees exactly at d=0.
+     General multiplicity preservation remains the quantified analytic proof,
+     with applicable prior Lean evidence, not a consequence of sampled residuals.
+t.4: the continued expression denotes classical zeta; fresh Euler-Maclaurin
+     diagnostics agree between N=64 and N=128 at the three candidate heights.
+t.5: unit-phase rotation preserves magnitude in the proof and numerical controls.
+t.6: opposite nonzero offsets cancel in signed sum; their sum of squares is
+     positive. Signed balance does not certify individual placement.
+t.7: bounded contour execution is recorded separately in CONTOUR_RESULTS.json
+     and GEOMETRY_RESULTS.json, including which operations were freshly run.
+t.8: crease zeros form a multiplicity-preserving subset of strip zeros in the
+     same signed open height window. Equality of counts at every positive cutoff
+     excludes any off-crease zero. This is the full-strip criterion, not a new
+     derivation of its universal premise.
+
+EIGHTEEN QUESTION REVIEW
+q.1-q.2: label selection and parent-relative midpoint have the stated domains.
+q.3-q.5: the Euclidean unit chart fixes the turn, vertex and one path parameter.
+q.6-q.7: signed-chart recovery is unique and preserves analytic multiplicity.
+q.8-q.9: all prime modes share Y; the series/product convergence domain precedes
+analytic continuation.
+q.10-q.13: original poles recover zeros and multiplicities; their full addresses
+retain d=Re(rho)-1/2. The same-height difference equals that offset.
+q.14-q.15: rotation and signed mirror controls rule out the proposed shortcuts.
+q.16: the bounded rectangle result depends on its explicit enclosures and winding;
+fresh checks in this execution are reported separately from historical controls.
+q.17: all-cutoff count equality is another form of the same universal condition.
+q.18: crease coverage and full-strip coverage retain their separate domains.
+
+MATHEMATICAL RETURN
+For every admitted prime record, incidence, matching and location force its own
+parent midpoint. The shared-frame hypothesis yields absolute X=1/2.
+For every real Y, F(Y)=0 iff zeta(1/2+iY)=0, with the stated multiplicity result.
+For every original zero rho, C(Im rho)+(Re rho-1/2)=rho.
+Recovery from Y alone over the full nontrivial-zero family is equivalent to
+universal vanishing of d. No step here establishes that universal vanishing.
+
+LIMITS OF THIS EXECUTION
+Finite rational controls check implementations of the identities; the quantified
+proofs establish the declared mathematical implications. Floating-point candidate
+residuals are diagnostics. The contour concerns its one bounded rectangle and
+the reviewed arithmetic/analytic enclosure implementation. No independent second
+kernel or independent new interval implementation is claimed. The historical
+290-control suite was not rerun. No original lock, GitHub file or ledger entry
+was changed by this performance.

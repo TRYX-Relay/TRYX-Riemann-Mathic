@@ -1,0 +1,911 @@
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 1
+An Infinite-Address Relative-Coordinate Model
+Virgil Lee Gattenby
+Publication successor · 7 November 2026
+Abstract
+I draw a line. I identify its ends and compare a point’s position from each side. When both 
+readings use the same span and match, the point can only be halfway between them.
+Now I give that construction a family of numbers. I remove zero, one and every composite from 
+the candidate list. What remains is exactly the primes. Each prime retains its identity while its 
+admitted matching event occupies the midpoint of its parent span. Sharing a location does not 
+make them the same number.
+I call this Euler-Zeno in Prime Relatives (EZPR). Infinite addressing describes the entire family 
+through one rule and one argument, without plotting every member separately. The proofs 
+establish midpoint placement under matching, preservation through changes of scale and 
+successive generations, and preservation of inherited distinctions through exact recovery. Lean
+verifies the arithmetic selection and matching-based placement results.
+The principal result is proved local closure of EZPR: every admitted prime event has its unique 
+parent-relative coordinate ½, and no admitted prime event lies off that crease. Matching is a 
+defining rule of EZPR. The Riemann-hypothesis objective additionally requires a correspondence 
+covering every nontrivial zeta zero and preserving its real part; that correspondence is not 
+established in the archived proof.
+I give an exact readout of the zeros of the Riemann zeta function on its critical line, preserving 
+positions and multiplicities. The continued logarithmic derivative recovers the full nontrivial zero
+family as poles at their original positions. Under the reviewed rational enclosure bounds, exactly 
+one simple zero lies in a specified rectangle; reflection symmetry fixes it on the critical line. The
+included certificate and verifier passed a 128-disk replay on 7 November 2026 in the retained 
+implementation. For every original nontrivial zero ρ, full recovery retains (Y, d), where Y = Im ρ 
+and d = Re ρ − ½. Recovery from Y alone holds if and only if d = 0 for every such zero. The
+established closure concerns admitted prime events and the signed critical-line readout.
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 2
+Contents
+Abstract......................................................................................................................................................................1
+A. Introduction.........................................................................................................................................................3
+a.1 Delivery mechanics and relative addresses..........................................................................................4
+B. Definitions and retained state..........................................................................................................................5
+b.1 Candidates and cancellation....................................................................................................................5
+b.2 Records, parents and positions................................................................................................................5
+b.3 Relative readings, incidence and matching..........................................................................................6
+b.4 Retention and terminology......................................................................................................................6
+C. Prime Survivor Equivalence Theorem...........................................................................................................6
+D. Unique Matched Midpoint Theorem..............................................................................................................7
+E. Local Prime-Family Closure Theorem............................................................................................................9
+F. Affine Preservation Theorem..........................................................................................................................10
+G. Recursive Preservation Theorem..................................................................................................................10
+H. Recoverable Carry is Injective Theorem.....................................................................................................11
+h.1 Worked example — Keep the same record.........................................................................................11
+I. Common-frame prime crease..........................................................................................................................12
+J. Exact critical-line readout................................................................................................................................13
+K. Prime-power transform and pole recovery................................................................................................14
+L. Certified placement in a bounded rectangle...............................................................................................15
+M. Summary of results.........................................................................................................................................15
+N. Discussion and conclusion.............................................................................................................................16
+O. Methodological note........................................................................................................................................16
+P. Cross-examination and disproof tests..........................................................................................................17
+p.1 Proof cross-examination.........................................................................................................................17
+p.2 Disproof attempts and outcomes..........................................................................................................19
+Index of definitions...............................................................................................................................................21
+References................................................................................................................................................................26
+Q. Formal verification and source notes..........................................................................................................27
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 3
+A. Introduction
+Riemann’s 1859 paper connects prime counting to the zeros of the zeta function, beginning with 
+Euler’s product over primes [6]. Bombieri’s exposition explains the hypothesis and why those 
+zeros matter for the distribution of primes [7]. That connection motivates this investigation. The
+results below concern a separately defined coordinate model; the shared appearance of one-half 
+does not identify its events with zeta zeros.
+I named this construction Euler-Zeno in Prime Relatives (EZPR): a nod to Euler’s primes and 
+Zeno’s half-steps. The construction and the claims below are mine.
+The value is the same. Its address is different.
+That distinction is where this construction starts. I can move a reference without changing its 
+value. I can also give two different numbers the same location without making them the same 
+number. To keep those statements straight, I need the number, its address and the frame that 
+makes the address meaningful.
+First, remove zero and one from the candidate family. Then remove the composites. Nine leaves 
+because three times three is nine. Seven stays. The surviving labels are the primes. A number can 
+leave the active comparison while its record stays available.
+Now the placement question: where does a surviving number's comparison occur? I give the 
+event an identified parent segment and read its position from both ends. The rule is that the two 
+relative readings match. Equal progress from opposite ends of the same span puts the event 
+halfway between them. The proof is short. Keeping track of what the proof actually uses takes 
+more care.
+Selection tells me which numbers remain. Matching tells me where their events sit. The first does 
+not silently supply the second. In this paper, matching is an explicit rule of the construction.
+Two, three and seven can therefore share a midpoint and still be two, three and seven. A 
+coordinate is not an identity shredder. Their labels and histories stay with their records. If their 
+parent spans differ, their actual locations can differ too: halfway along one span is not necessarily
+the same address as halfway along another.
+This is where I use infinite addressing. I define the whole family, take an arbitrary member and 
+prove the relation for it. The argument then covers every member. I do not need to plot each one 
+to state that result. That is a universal argument, not a claim that a machine has finished an 
+infinite run.
+The research began with the Riemann hypothesis, which states that every nontrivial zeta zero has
+real part one-half [4, §25.10]. Sections C–H establish the coordinate construction. Sections I–L 
+then use the common frame to derive the critical-line readout, recover original zero positions 
+through the prime-power transform, and certify placement in one rectangle.
+The order matters: identify the record, select the prime, place its matching event, then follow it 
+through a change of frame and another generation. At the end, recover what was carried. Each 
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 4
+step has to leave the next one something it can actually use. The companion README gives the 
+exact Lean coverage and reproduction details.
+a.1 Delivery mechanics and relative addresses
+Follow the same participant through a change of address. Its identity stays with the record, and 
+earlier records remain available for comparison. A new address does not require a new identity.
+Definition — The continuing witness and its relative address.
+A witness here is the identified participant being tracked. Let W denote that identity, n a 
+nonnegative stage number, and An its address on the chosen real coordinate line. For any position
+x on that line, define
+rn(x) = x − An EQ01
+Consequently,
+rn(An) = 0 EQ02
+This is a translation of the coordinate origin [2, Chapter 2]: the witness is at zero relative to its 
+own address. The zero is a reference reading, not a claim that the witness has disappeared or that 
+a zeta function vanishes.
+For example, at address A0=3 the reading is r0(x)=x−3. At address A1=8 it is r1(x)=x−8. The witness 
+reads zero at each of those addresses. The addresses differ; the tracked identity W does not. These 
+chosen addresses illustrate the definition; the formula does not generate the next address.
+Figure 1 compares two readings of the same locations: the parent address and the address relative
+to one-half. Changing the reference does not move the point.
+FIGURE 1
+Relative coordinates in half-unit steps
+A: reference address. r(x): relative reading. Dashed line aligns the same location in both charts.
+EQ01–EQ02. Set A = ½. Parent readings 0, ½, 1, 1½, 2 become −½, 0, ½, 1, 1½. Only the origin 
+changes; half-unit spacing and the underlying locations remain unchanged.
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 5
+The retained stack means the earlier stage records remain available alongside the current record. 
+For clarity, write that record sequence as
+Hn = ((W, A0), (W, A1), ..., (W, An)) EQ03
+The stack keeps the identity and each recorded address together. Reading zero locally leaves those
+earlier addresses intact. This is the information represented by the example; the notation specifies
+no storage mechanism or additional inherited relationships.
+Keeping a stack is useful only if I can get the required information back. That is the recovery 
+question. Theorem 6 states the test precisely: recover after carrying, and obtain the inherited 
+state. An implementation must satisfy that test to claim exact recovery.
+B. Definitions and retained state
+Set operations and indexed families use standard notation [3, §§1.5, 1.8]. The records and 
+admission rule below are definitions of the present model.
+The definitions below separate the number being classified, the record that identifies it, and the 
+position assigned to an admitted comparison event.
+b.1 Candidates and cancellation
+Let N0 denote the nonnegative integers:
+N0 = {0, 1, 2, …}
+A proper factorization means n = u × v, where u and v are integers at least two. Define the 
+composite set C and the surviving family S together:
+C = {u × v : u, v ∈ N0, u ≥ 2, v ≥ 2}
+S = N0 ∖ ({0, 1} ∪ C) EQ04
+Thus S is the surviving candidate family. Theorem 1 proves that S is exactly the primes; this 
+equivalence is not needed as an assumption in its definition.
+Cancellation excludes a candidate from this active family. It need not erase its retained record. 
+Excluding the numerical candidates zero and one also does not remove zero and unit reference 
+roles from the coordinate construction.
+b.2 Records, parents and positions
+A label identifies a number. A record keeps that label together with the information required to 
+interpret its event. For each p∈S, the proposed placement model supplies a record containing p, 
+participant identities, parent identity Kp, endpoints ap<bp, event location xp and relevant history.
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 6
+The parent span is the segment between those endpoints. Its length is Lp=bp−ap>0. All event
+locations belong to the declared affine X line. There is no independent Y component in this 
+model's location type; this is a model definition, not a reduction theorem for another system.
+Distinct labels may share a location. Equal endpoint values do not by themselves identify 
+participants or their histories.
+b.3 Relative readings, incidence and matching
+For the same event and identified parent, define
+tp = (xp − ap)/Lp, up = (bp − xp)/Lp EQ05
+These are directed parent-relative coordinates. For an event inside the parent segment, they are 
+the fractions of the span traversed from its two endpoints. The positive length makes both 
+expressions well-defined. If participants begin in different charts, a supplied relative-coordinate 
+map must first identify the common event and parent being compared.
+Incidence is the identity tp+up=1, obtained directly from these definitions. Matching is the 
+additional admission rule tp=up. A matching record satisfies both equations and the location 
+relation xp=ap+Lp tp. Theorem 2 derives its unique midpoint location.
+The definitions do not derive matching from primality, from available perspectives, or from the 
+equality of reference labels. The whole-family theorem explicitly requires a matching record for 
+each survivor.
+b.4 Retention and terminology
+Here “crease” means the identified parent midpoint. “Projector” names a participant role in the 
+source construction; the affine equations below represent a comparison and do not independently
+establish native projector behavior. “Closure” means that the declared conditions imply the stated
+conclusions throughout the admitted family.
+Retention means keeping enough information to recover the specified inherited state. Theorem 6
+states the exact recovery condition; storing a history label alone is not that condition.
+The revised terminology distinguishes perspective, connecting relation, comparison and 
+reception. Perspective alone does not imply a receiver, reflection, doubled scale or new coordinate
+axis. Value, Perception and Action describe respectively the retained state, its admitted 
+comparison and the committed operation; this usage introduces no physical timing schedule.
+C. Prime Survivor Equivalence Theorem
+Start with the whole numbers. Remove zero and one, then every number made by multiplying 
+two whole numbers greater than one. Nine goes because three times three is nine; seven and two 
+stay. Every prime survives, and every survivor is prime. The proof below establishes both 
+directions.
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 7
+Statement and proof
+We use the standard definition of prime and composite integers [1, Definition 1.1.3].
+For n∈N0, n∈S if and only if n is prime.
+n ∈ S ⇔ n is prime
+Proof. Membership supplies n≥2 and excludes every factorization n=uv with both factors at least 
+two. Thus n has no proper divisor d with 2≤d<n: such a divisor would give n=dv and v≥2. 
+Conversely, if n is prime, n≥2 and any such factorization would provide a proper divisor u, 
+because v≥2 forces u<n. Hence no proper factorization exists and n∈S. □
+The statement classifies the whole family by the standard prime/composite distinction [1, §1.1.1]. 
+It supplies no midpoint-placement theorem.
+This selection classifies labels. It does not say that a geometric point labeled 9 cannot be placed at 
+a midpoint.
+Figure 2 separates the surviving prime labels from the excluded labels. The diagram illustrates the
+selection rule; it does not supply placement.
+FIGURE 2
+Separate the family from the exclusions
+Circled labels link to their definitions. The upper line passes through prime positions; circle 
+interiors keep numerals readable.
+Theorem 1. Primes remain on the upper row; excluded labels sit below. The aligned scale r(n) = n 
+− 1 uses reference 1: its local reading is 0. This coordinate change does not change primality.
+D. Unique Matched Midpoint Theorem
+The coordinate representation is an instance of affine and barycentric coordinates [2, §§2.2, 2.6]. 
+The equal-progress condition is imposed separately by this model.
+The quotient definitions imply incidence:
+tp + up = 1 EQ06
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 8
+In this paper’s declared model, the EZPR admission rule is equal relative progress:
+tp = up EQ07
+The first equation follows from a shared parent and event. The second specifies which event is 
+admitted. Neither primality nor two available perspectives alone implies the second equation.
+The same relations can be expressed by inward parameterized rays
+Ep(t) = ap + Lp t, Tp(u) = bp − Lp u, t, u ≥ 0 EQ08
+Their incidence is equivalent to t+u=1. Their images overlap on the parent interval; unique 
+placement arises only after matching is imposed. The parameters are coordinates, not elapsed 
+time.
+Take a segment from zero to ten. Five is equally far from both ends; four is four units from one 
+end and six from the other. The matching rule requires equal readings from the same event and 
+parent span. Only the midpoint satisfies it. This proves the consequence of matching, not that 
+primality itself creates matching.
+Statement and proof
+For real endpoints a<b and real unknowns t,u,x, the incidence, matching and location equations
+t + u = 1, t = u, x = a + (b − a)t EQ09
+have exactly one solution: t=u=1/2 and x=(a+b)/2.
+t = u = ½ and x = (a + b)/2
+Proof. Substituting u=t gives 2t=1, so t=u=1/2. The location equation then gives x=(a+b)/2. 
+Conversely those values satisfy every equation, establishing existence as well as uniqueness. □
+Take the surviving label 7 with parent endpoints 0 and 2. Its matched event has X=1 and 
+normalized progress 1/2 from either side. The same label with parent endpoints 10 and 14 has 
+X=12 and again normalized progress 1/2. The label and normalized relation persist; the global 
+location changes with the parent.
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 9
+Figure 3 shows the matching event on its identified parent span. The extension beyond that span 
+does not change which endpoints define the midpoint.
+FIGURE 3
+Matching fixes the midpoint
+t, u: fractions read from opposite ends. Dashed line: midpoint marker. Dot: event.
+Placement (Theorems 2–3). Incidence gives t + u = 1; the supplied matching rule t = u forces x = ½
+on the normalized parent [0,1]. The parent remains [0,1]; 1½ and 2 show the continuation beyond 
+it.
+E. Local Prime-Family Closure Theorem
+Combine the first two results: select the prime labels, then equip each with a matching record. 
+Each event lies at its own parent midpoint. Several distinct primes can share a location without 
+losing their identities. Different parent spans need not have the same midpoint.
+Statement and proof
+Suppose every p∈S is equipped with real endpoints ap<bp and real readings tp,up,xp satisfying 
+tp+up=1, tp=up and xp=ap+(bp−ap)tp. Every prime record then lies at its identified parent's midpoint. 
+No such record lies strictly to either side of that midpoint.
+∀p ∈ S: xp = (ap + bp)/2
+Proof. Theorem 1 identifies S with the primes. Apply Theorem 2 to an arbitrary member. Either 
+strict inequality contradicts the midpoint equality. Because the member was arbitrary, the 
+conclusion holds universally without enumeration. □
+Corollary — Shared parent, common X.
+If all records have the same endpoints a,b, all matched locations equal (a+b)/2. More generally, 
+equal parent midpoints suffice. Equal normalized progress alone is insufficient when the 
+midpoints differ.
+Define the normalized representation Z={(p,1/2):p∈S}. Projection (p,1/2)↦p is bijective onto S: its 
+inverse is p↦(p,1/2), and composing these maps in either order returns the starting element. 
+Projection onto 1/2 alone is not injective: the distinct labels 2 and 3 already provide a 
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 10
+counterexample. The coordinate tells us where; the retained record tells us what arrived. Losing 
+the label is not a shortcut to remembering it.
+F. Affine Preservation Theorem
+Affine maps preserve affine combinations [2, §2.7, Definition 2.6]. The midpoint case uses two 
+weights, each equal to one-half; the proof below specializes that standard fact.
+Shift or uniformly rescale both endpoints and their event together. On a segment from zero to 
+ten, the midpoint is five. Double all three coordinates and add three: the endpoints become three 
+and twenty-three, and the midpoint becomes thirteen. The same relationship survives. A zero 
+scale is excluded because it collapses the span; a negative scale reverses orientation.
+Statement and proof
+For f(x)=αx+β with α≠0, midpoint membership is preserved when the complete event and parent
+are transported together.
+x = (a + b)/2 ⇒ f(x) = (f(a) + f(b))/2
+Proof. If x=(a+b)/2, then f(x)=(f(a)+f(b))/2 by distribution. Also f(b)−f(a)=α(b−a)≠0, so the 
+normalized comparison remains defined. Set a′=min(f(a),f(b)), b′=max(f(a),f(b)), and L′=b′−a′=|α|
+L>0. Use t′=(f(x)−a′)/L′ and u′=(b′−f(x))/L′. When α<0 the endpoint order reverses, so t′=u and 
+u′=t; when α>0, t′=t and u′=u. Thus matching is preserved in either case. Participant identities 
+remain in their records independently of endpoint order. □
+G. Recursive Preservation Theorem
+The proof uses ordinary mathematical induction [3, §10.1] and the definition of an indexed union 
+[3, §1.8].
+Start with matching records. At each next stage, preserve the inherited matches and require every
+new record to match. Every resulting stage then satisfies the rule. Any record in the union 
+entered at some finite stage, so it satisfies the rule too. This does not establish that every prime
+eventually enters.
+Statement and proof
+Let G0 consist of matched events. Suppose each Gn+1 consists of inherited events whose parent￾relative matching is preserved and new events satisfying incidence, matching and location. Then 
+all events at every finite stage match.
+∀n ∈ N0, ∀q ∈ Gn: q satisfies matching
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 11
+Proof. The base is given. At the successor stage, inherited events match by preservation and new 
+events by Theorem 2. Induction completes the proof. Every member of the union of finite stages 
+also matches because it belongs to some stage. □
+Every record that enters stays matched under these rules. To claim every prime is represented, I 
+must also show that each prime enters. Induction keeps the records in order; it does not fill the 
+guest list.
+H. Recoverable Carry is Injective Theorem
+The argument uses function composition and injectivity [3, §§12.2, 12.4–12.5]. Exact recovery is 
+the left-inverse condition; the proof below derives injectivity directly.
+If carrying could turn two different inherited states into the same encoded state, one recovery 
+operation would have to return two different originals from that same input. Exact recovery rules
+this out: identical encodings must have identical originals. New experience may still be added 
+alongside the inherited component.
+Statement and proof
+Let Hset be the admitted inherited states and Bset the encoded states. If functions K:Hset→Bset and 
+R:K(Hset)→Hset satisfy R(K(H))=H for every H∈Hset, then K is injective.
+R ∘ K = id ⇒ K is injective
+Proof. K(H)=K(J) implies H=R(K(H))=R(K(J))=J. □
+An enlarged successor can contain additional experience. The identity applies to its recoverable 
+inherited component, not to equality of the entire enlarged state. Historical admission and 
+current read validity also remain distinct.
+h.1 Worked example — Keep the same record
+Start with seven and keep nine beside it as a control. Nine is excluded because 9=3·3. Seven 
+survives. This selects the label; it has not yet placed an event.
+Give seven an identified parent P with endpoints 0 and 10. Its readings are t=x/10 and 
+u=(10−x)/10. Require matching t=u. Solving gives x=5 and t=u=1/2. The parent and matching rule 
+are supplied; the midpoint is calculated.
+Keep the record Q0=(label 7, parent P, endpoints (0,10), location 5). Its participant identities are 
+retained as additional fixed fields. Another prime can occupy the same location without replacing
+label 7. Nine’s exclusion is arithmetic: nothing prevents an unrelated geometric point labeled nine
+from sitting at five.
+Now apply f(x)=2x+3 to the entire parent and event. The new endpoints are 3 and 23; the event is 
+at 13. The two relative readings are (13−3)/20=1/2 and (23−13)/20=1/2. Retain Q0 and the 
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 12
+transformation alongside the new record Q1. The ordered history is H1=(Q0,Q1). We changed the 
+address, not the label.
+Figure 4 follows the same label through four deliveries. Each new record changes the parent and 
+event addresses while retaining the earlier records.
+FIGURE 4
+Delivery mechanics through Q₃
+Q₀–Q₃: successive records. Dots: event locations. Each span uses its own display scale.
+Theorems 4–5. Apply x ↦ 2x + 3 at each step to both endpoints and the event. Midpoints read 5, 
+13, 29, 61; every event remains halfway within its own parent. Label 7 is retained throughout.
+The relative-address formula reads this change locally: r0(x)=x−5 and r1(x)=x−13. Each event reads
+zero at its own address. The retained stack keeps both addresses and their parent records. Local 
+zero is not the midpoint fraction: zero describes recentering at the event, while one-half describes
+progress through the parent.
+For successive stages, repeatedly apply the same affine transformation to the preceding parent
+and event, retaining the earlier records. Theorem 4 preserves matching at each step; Theorem 5
+therefore preserves it at every finite stage. This example follows seven throughout. It does not 
+claim to generate every prime.
+Finally, make recovery explicit for this illustrative record scheme. Carry an inherited stack H with
+new experience e by K(H)=(H,e), choosing e as a fixed or specified function of H. Define 
+R(H,e)=H. Then R(K(H))=H exactly. This simple retained-pair encoding witnesses Theorem 6; it is 
+not a claim that a native implementation uses this storage format.
+That is the complete example: select the label, supply the comparison rule, calculate its place, 
+move the whole parent, retain the earlier records and recover them. Each operation has a stated 
+job. None borrows a conclusion from the next one.
+I. Common-frame prime crease
+Theorems 1–3 establish prime admission and parent-normalized placement. Theorems 4–6 
+preserve the construction under affine transport, recursive admission, and exact recovery. I now 
+fix a common frame so that the parent midpoint can serve as the reference for the zeta readout.
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 13
+Worked record. Admit prime label 2 in the unit parent. The event reads one-half from either 
+end. The record still says 2 after it takes the turn. A second parent could have a different absolute 
+midpoint even though its normalized reading is also one-half. A common crease uses a common 
+chart and coincident parent midpoints in that chart. [12]
+Figure 5. The unit reference dyad and the positive bent path. The unused half of the reference segment remains 
+visible in gray.
+Theorem 7 (The turned leg and its signed chart). In the common Euclidean unit frame the 
+reference endpoints are 0 and 1. Their perpendicular bisector is X =1 / 2. Put C (Y ) =1 / 2+iY for 
+all real Y . Define B( t ) =t for 0≤t <1 / 2 and B( t ) =C ( t −1 / 2) for t ≥1 / 2.
+Proof. A point on the perpendicular bisector is equally distant from the unit endpoints. Equating
+squared distances gives
+X² + Y² = (1 − X)² + Y² ⇔ X = ½
+Both legs meet at B(1 / 2) =C (0). On the turned leg B(1 / 2+Y ) =C (Y ) for Y ≥0. The signed chart
+also permits negative heights. Its inverse is the imaginary part. On the path, the distance 
+parameter is X before the turn and 1 / 2+Y after it. [13, 17]
+J. Exact critical-line readout
+Theorem 8 (Exact zero readout). Put F (Y ) =ζ (C (Y ) ). Its zeros correspond bijectively to the 
+zeta zeros on the crease, with their original positions and multiplicities.
+Proof. Each prime contributes p
+− X
+e
+−iY log p
+ at s= X +iY . For X >1, the Euler product of (1− p
+−s
+)
+−1
+equals ζ (s). Evaluate its analytic continuation on the crease. Then F (Y ) =0 exactly when C (Y ) is a
+crease zero, and Y =ℑ C (Y ) is the unique inverse. At a zero ρ=C (Y 0 ) of order m, write
+ζ (s) =(s− ρ)
+m
+g (s) locally with g ( ρ) ≠ 0. In the holomorphic extension in Y ,
+The cofactor is nonzero at Y 0
+, so the order is unchanged. This is local closure for the entire 
+signed crease. [13, 17] See [4, §§25.2 and 27.4] for the Euler product and continuation.
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 14
+K. Prime-power transform and pole recovery
+Theorem 9 (Original zero recovery). In the open critical strip, the poles of the continued 
+aggregate prime-power transform are precisely the nontrivial zeta zeros. Each pole is simple and 
+its residue equals minus the zero’s multiplicity.
+Proof. For ℜ s>1, logarithmic differentiation of the absolutely convergent Euler product gives
+The quotient supplies meromorphic continuation. Let ρ be an arbitrary zero in the open critical 
+strip. Zeta is holomorphic there and is not identically zero: its continuation is analytic on the 
+connected domain ℂ ∖ {1} and ζ(2) ≠ 0. The identity theorem therefore makes ρ an isolated zero of
+finite order m ≥ 1. The local order-of-vanishing theorem gives ζ(s) = (s − ρ)ᵐ g(s), with g 
+holomorphic and g(ρ) ≠ 0. Shrink the neighborhood so g stays nonzero. Differentiation yields D(s)
+= −m/(s − ρ) − g′(s)/g(s). The second term is holomorphic. At every nonzero point in the strip, the 
+quotient is holomorphic. Thus the poles recover precisely the original zeros, and their negative 
+residues recover multiplicities. This argument applies to arbitrary strip zeros, independently of 
+their real coordinates. [4, 17]
+For each original zero ρ, retain its height Y =ℑ ρ and its real offset d =ℜ ρ−1 / 2. The crease point
+at the same height is C (Y ) =1 / 2+iY . Subtracting gives ρ−C (Y ) =d, and adding the offset back 
+recovers C (Y ) +d = ρ.
+Figure 6. The original point and the crease point at the same height. The full address retains d; the Y-only 
+return equals the original point exactly when d = 0. The diagram is schematic and asserts no off-line zeta zero.
+Corollary (Full-strip equivalence). Exact recovery by Y alone for every original nontrivial 
+zero is equivalent to ℜ ρ=1 / 2 for every such zero.
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 15
+Proof. For an arbitrary zero the difference between the two returns is ρ−C ( ℑ ρ) =d. Thus the 
+returns agree exactly when d =0. Quantify over the full family. The statement proves the 
+equivalence. The universal assertion is open in the proof record. [15, 17]
+L. Certified placement in a bounded rectangle
+Proposition (Placement under the reported contour guarantees). Let U be the rectangle 0.495 ≤ X 
+≤ 0.505, 14.1297 ≤ Y ≤ 14.1397. Assume the reported 128 rational boundary enclosures rigorously 
+exclude zero and establish winding number one. Zeta is holomorphic throughout U, so the 
+argument principle counts one zero with total multiplicity one. That zero is simple. The rectangle 
+is invariant under J(s) = 1 − conjugate(s), and the functional equation and conjugation symmetry 
+preserve strip zeros under J. The image of the unique zero must be that same zero. Thus ρ = J(ρ), 
+and Re ρ = ½. The conclusion depends on the stated contour guarantees. [4, §§25.4 and 25.10; 18]
+Replay on 7 November 2026. The included certificate reproduced all 128 boundary image disks 
+exactly in the retained arithmetic implementation. The separate exact geometry verifier passed 
+with winding number one. The bounded conclusion uses the reviewed analytic enclosure bounds 
+and argument principle. This is a replay of the same implementation, not a new independent 
+enclosure implementation. The certificate, verifier, portable launcher and saved result accompany 
+this paper. [16]
+Reported finite controls. The November 3 record reports 290 finite control passes and a residual of
+approximately 1.826 × 10⁻¹² near ½ + 14.134725141737i. These are historical reported 
+observations. A small residual alone does not prove a zero; the bounded zero count follows from 
+the stated contour guarantees. [16]
+M. Summary of results
+The construction has three jobs: select the numbers, place their events and preserve the records. 
+Each theorem settles one part of that work.
+Selection. Removing zero, one and proper products leaves exactly the primes (Section C).
+Placement. When two readings of the same event use the same parent span and satisfy the 
+matching rule, the event is uniquely at that span’s midpoint (Section D). Applying this result to 
+each supplied matching record gives local prime-family closure (Section E). Selection alone does 
+not supply matching.
+Preservation. A common affine change preserves midpoint placement (Section F). Valid initial 
+records and a validity-preserving recursion preserve it at every finite stage (Section G). Exact 
+recovery makes the carry map injective on inherited states (Section H).
+Together, Theorems 1–6 close the declared EZPR model under its admission and preservation 
+premises. The common frame identifies its crease at one-half (Section I). The exact readout 
+preserves crease zeros and multiplicities (Section J). The prime-power transform recovers all 
+original strip zeros at their original positions (Section K). Section L derives bounded placement 
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 16
+from the reported contour guarantees and states their reproduction dependency. Full-strip 
+recovery from Y alone remains equivalent to universal placement.
+N. Discussion and conclusion
+Two comparisons place this result in the wider literature. Lagarias proves that a sequence of 
+inequalities involving harmonic numbers and sums of divisors is equivalent to the Riemann 
+hypothesis [9, Theorem 1.1]. This demonstrates that a formulation using integers can address the 
+hypothesis, provided the equivalence itself is proved. EZPR’s classification and midpoint
+theorems do not yet supply such an equivalence.
+Platt and Trudgian rigorously verify the location of zeta zeros up to height 3 × 1012, using interval
+arithmetic [10]. Their result concerns a bounded region of the zeta function. Here, universal 
+quantification covers every admitted EZPR record, but the objects quantified over are model 
+records. A large verified region, an entire defined family, and an equivalence with the zeta-zero 
+problem are distinct mathematical achievements.
+What did the construction deliver? Cancellation leaves exactly the primes. Matching puts each 
+admitted event halfway along its own parent. When records share a parent, they share that 
+location. Their identities stay with them.
+Now move it. Shift the whole parent or change its scale, and the event stays halfway. Carry the 
+records through another generation under the preservation rules, and the match survives. Exact 
+recovery answers the last question: can I get the inherited information back? If I can, two 
+different inherited states cannot have been merged along the way.
+That is local closure in EZPR. I supply equal-progress matching as a construction rule; the 
+midpoint follows from it, incidence and location. Primality determines the family. Matching 
+determines placement. The companion README traces the relationship to the earlier research 
+constructions.
+The native constructor must still supply the declared matching records. For the zeta zeros, Section
+K gives a full address consisting of the height and the real offset. Recovering every original zero 
+from the height alone is equivalent to proving that each offset vanishes. Section L establishes this
+placement for the zero inside the certified rectangle.
+Return to the opening line. The value is the same. Its address is different. We can now say exactly 
+what survives that change: identity, matched placement under the stated rules, and inherited 
+information when recovery is exact. The record has moved. We can still account for what arrived.
+O. Methodological note
+I supplied the construction, terminology corrections and research direction. AI assistance helped 
+organize formal statements, proofs, source reconciliation and the Lean artifact. Source 
+declarations, machine-checked consequences and open correspondence obligations are 
+distinguished throughout. My writing preferences guide the explanation; the proofs carry the 
+mathematical claims.
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 17
+P. Cross-examination and disproof tests
+p.1 Proof cross-examination
+The questions belong to the proof record. Some are tests of the coordinate model. Others check 
+the analytic return. I keep their answers with the step they challenged.
+q.1 Which labels survive?
+• The surviving labels are exactly the primes. Excluding zero, one, and every product of two 
+integers at least two removes precisely the nonprime candidates. [Theorem 1, ref. 12]
+q.2 Where does a matched prime dyad sit on X?
+• Within its own parent span, the matched event sits halfway between the endpoints. Its 
+normalized coordinate is ½.
+• The absolute coordinate is also ½ when the parent midpoint is ½ in the shared X chart. 
+[Theorems 2 and 7, ref. 12]
+q.3 What fixes the bend and its direction?
+• In the unit frame, the points equally distant from 0 and 1 form the perpendicular bisector 
+X = ½. The turned leg follows that line. [Theorem 7]
+q.4 Where is the shared vertex?
+• The vertex is the same point in both descriptions. Its coordinate on the unit X segment is 
+½. Its signed Y coordinate is 0. [Theorem 7]
+q.5 Does the join make a grid or add a free coordinate?
+• One distance parameter follows the path from the X leg through the bend and along the 
+turned leg. Once on the turned leg, only Y varies. [Theorem 7]
+q.6 Can a returned Y-line zero be placed elsewhere?
+• Each zero returned by the Y readout maps to exactly one point, ½ + iY. On Y ≥ 0, the 
+positive bent path returns the same point as the signed chart. [Theorems 7–8]
+q.7 Can the crease readout lose, displace, or miscount a crease zero?
+• Taking the imaginary part of the returned point recovers its Y address.
+• The affine substitution contributes a nonzero factor to the local zero expansion, so the 
+order of vanishing stays the same. [Theorem 8]
+q.8 Do the prime modes share Y?
+• Yes. Every prime uses the same height Y. The factor exp(−iY log p) gives each prime its 
+own phase rate log p. [Theorem 8]
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 18
+q.9 Does the prime spectrum reproduce classical zeta there?
+• The Euler product equals ζ(s) where Re s > 1. Continue that function analytically, then 
+evaluate it at ½ + iY. [Theorem 8, ref. 4]
+q.10 Does the aggregate recover original zeros and their multiplicities?
+• In the open critical strip, the continued transform has a pole at each original nontrivial 
+zero and nowhere else.
+• The pole location gives the original zero. The negative of its residue gives the zero’s 
+multiplicity. [Theorem 9]
+q.11 Does infinite addressing reach all original nontrivial zeros?
+• Yes. The full address stores the height Y and the real offset d. Adding d to the crease point 
+at height Y recovers the original zero. [Theorem 9 and Section K]
+q.12 What does the offset measure, and where does the comparison cancel?
+• The offset d is the signed difference between the original real coordinate and ½. Compare 
+both points at the same Y.
+• The comparison gives zero precisely when the original point is already on the crease. 
+[Section K, ref. 15]
+q.13 What does the same-height comparison retain?
+• The height Y identifies the crease point. The offset d retains the real displacement needed 
+to recover the original zero. [Section K]
+q.14 Can rotation of the whole output create a zero?
+• No. Multiplying the output by a unit complex phase leaves its magnitude unchanged, so a 
+nonzero value stays nonzero. [t.5]
+q.15 Does signed mirror balance certify each address?
+• No. Two opposite offsets can sum to zero while each is nonzero. A signed sum alone 
+cannot establish placement at each address. [t.6]
+q.16 What did the contour prove, and what checks passed?
+• Under the reviewed contour guarantees, the argument principle counts exactly one simple
+zero in the specified rectangle. Reflection symmetry puts it at X = ½. The certificate and 
+executable verifier are included in the publication packet. [Section L, ref. 16]
+• The 7 November replay reproduced all 128 boundary image disks exactly; separate 
+geometry verification gave winding one. The 290 finite control passes belong to the 
+historical record and were not rerun. Neither count is a universal RH conclusion. [Section 
+L, ref. 16]
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 19
+q.17 Is counting poles and line zeros at every height a new objection?
+• With the same signed height window and multiplicities, every crease zero is already 
+included in the full count.
+• Equality at every cutoff would exclude any extra off-crease zero. This is the counting form
+of the same full-family condition. [t.8]
+q.18 What does the readout establish outside its domain?
+• The readout identifies every zeta zero on its own crease. The full transform separately 
+recovers each original zero’s height and offset.
+• Recovery from Y alone agrees with full recovery exactly when the offset vanishes at that 
+address. [Theorems 8–9 and Section K]
+p.2 Disproof attempts and outcomes
+t.1 Break prime admission or move the midpoint
+Try to admit a nonprime survivor or place an admitted matched event away from its parent
+midpoint. Theorem 1 characterizes the survivors exactly. Theorems 2–3 force each admitted event
+to its identified parent midpoint. Absolute X = ½ additionally requires the common-frame
+hypothesis in Section I. The challenge is ruled out within those stated premises.
+t.2 Break the bend or introduce a second free coordinate
+Try to shift the relative origin away from the vertex or give one point on the turned line two 
+altitude addresses. Ruled out. C(0) = v and Im C(Y) = Y. The two legs share the vertex, and the 
+turned line has one free coordinate.
+t.3 Lose a zero in either recovery
+Try to lose a crease zero, change its multiplicity, or lose an original nontrivial zero in the 
+aggregate. Ruled out in each stated domain. The Y inverse and local factorization preserve the
+crease zeros. The poles and residues of D, together with the full relative address, preserve the 
+original zeros and their multiplicities.
+t.4 Break prime-spectrum agreement
+Compare the analytically continued prime formula with the classical zeta readout on the crease. 
+Exact agreement. The Euler product gives the same function on X > 1, and uniqueness of 
+analytic continuation carries that equality to the crease.
+t.5 Manufacture cancellation by rotating the output
+Rotate the whole complex output and test whether a nonzero value can become zero. Ruled out.
+For real θ, |exp(iθ) ζ(s)|² = |ζ(s)|².
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 20
+t.6 Hide displacement through mirror balance
+Test whether opposite offsets can cancel in the aggregate while each remains nonzero. The 
+control defeats that shortcut. A pair d,−d has signed sum zero for every d. Signed pair balance
+cannot certify cancellation at each original address.
+t.7 Challenge the bounded certificate and finite controls
+Section L derives the bounded conclusion under the reviewed analytic bounds. Its included 
+certificate and verifier passed the 7 November 128-disk replay and winding check in the retained 
+implementation. The historical 290 finite controls remain separate. This bounded verification is 
+not an independent new enclosure implementation or a full-strip placement theorem. [16]
+t.8 Challenge by counting at every height
+Compare the full pole count and the crease-zero count, including multiplicities. For each T > 0 
+use the signed open window −T < Im ρ < T in the full strip and −T < Y < T on the crease. Both 
+counts exclude the endpoints. Duplicate of the full RH claim. Since crease zeros are already 
+included with matching multiplicities, equality at every cutoff is equivalent to equality of the two
+families.
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 21
+Index of definitions
+Definitions specify the declared domains and meanings; numerical entries are worked instances. 
+Linked terms open these entries. A linked definition heading returns to a first use; Previous View 
+or Back returns to your exact reading position. For n≥1, D(n) denotes the positive divisors of n; S 
+and C are the survivor and composite sets of Section b.1.
+0 side of the 0 < 1 dyad — For a parent a<b, t(x) = (x−a)/(b−a) gives t(a) = 0. Separately, a chosen
+reference A has local coordinate rA(A) = 0 under rA(x) = x−A. These zeros coincide only when A 
+= a; a midpoint reference has t(A) = ½ while rA(A) = 0. Neither reference convention makes 
+integer 0 a prime. Sections a.1 and b.3.
+1 side of the 0 < 1 dyad — The one endpoint sets the unit span relative to zero. Excluding 
+integer 1 from the prime family does not remove the unit used in comparison. L = b − a > 0; t(x)
+= (x − a)/L; u(x) = (b − x)/L; t + u = 1. EQ05–EQ06: parent-relative pair. At a: (t,u) = (0,1); at b: 
+(1,0). This is the paper’s dyad readout, not a replacement native definition.
+2 · prime label and denominator — For an integer n ≥ 1 define D(n) = {d ∈ ℕ : d divides n}, 
+where ℕ = {1,2,…}. Then D(2) = {1,2}, so 2 is prime. Separately define dk = k/2 for k ∈ N0; this 
+gives 0,½,1,1½,2,… as half-unit coordinates. The denominator specifies a coordinate spacing, not
+the prime-selection predicate. Sections b.1 and C.
+3 · a prime and a comparison value — 3 is prime. Two occurrences of 3 may enter a 
+multiplicative comparison: 3 × 3 = 9. Their equal values do not require the two records to be 
+identical. D(3) = {1,3}; 3 × 3 = 9. Theorem 1: prime label and proper-product witness.
+4 · composite — 2 × 2 = 4. Excluded from the prime candidate family; its record may remain in 
+history. 4 = 2 × 2 ∈ C; 4 ∉ S. EQ04.
+5 · prime — No factorization into two integers greater than one. Retained in the prime candidate 
+family. D(5) = {1,5}; 5 ∈ S. Theorem 1.
+6 · composite — 2 × 3 = 6. Excluded from the prime candidate family; its record may remain in 
+history. 6 = 2 × 3 ∈ C; 6 ∉ S. EQ04.
+7 · prime — No factorization into two integers greater than one. Retained in the prime candidate 
+family. D(7) = {1,7}; 7 ∈ S. Theorem 1.
+8 · composite — 2 × 4 = 8. Excluded from the prime candidate family; its record may remain in 
+history. 8 = 2 × 4 ∈ C; 8 ∉ S. EQ04.
+9 · composite — 3 × 3 = 9. Excluded from the prime candidate family; its record may remain in 
+history. 9 = 3 × 3 ∈ C; 9 ∉ S. EQ04.
+Affine transport — Applying f(x) = αx+β, α ≠ 0, to the event and both endpoints together. 
+Section F, Theorem 4; standard mathematics. See [2, §2.7].
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 22
+Bent path and signed chart — The nonnegative distance parameter traverses the X leg and 
+then the positive Y leg. The signed crease chart includes both positive and negative heights. See
+Section I.
+Bijective / inverse — A map f:X→Y is bijective if it is injective and ∀y ∈ Y there exists x ∈ X 
+with f(x) = y. Its inverse g:Y→X satisfies g∘f = idX and f∘g = idY. A left inverse alone proves 
+injectivity, not surjectivity onto an independently specified Y. Sections E and H. See [3, §12.5].
+Cancellation — The set operation S = N0∖({0,1}∪C), where C = {uv : u,v ∈ N0, u ≥ 2, v ≥ 2}. Thus a 
+label is cancelled precisely when it lies in {0,1}∪C. This operation acts on membership in S; it 
+specifies no deletion operation on stored records. Sections b.1 and C.
+Candidate — An element n of N0 = {0,1,2,…}, before application of the selection predicate. The
+candidate domain includes 0 and 1; membership in that domain does not imply primality. 
+Section b.1.
+Carry / decoder / exact recovery — Let be the inherited-state domain and the encoding ℋ ℰ
+space. An encoder K: → has a decoder R:K( )→ . Exact recovery means R(K(h)) = h for ℋ ℰ ℋ ℋ
+every h ∈ . Consequently K is injective. ℋ The illustrative encoding K(h) = (h,e) retains the 
+declared inherited component and makes no storage-efficiency claim. Section H.
+Composite / proper factorization — A number expressible as uv with whole-number factors 
+u,v ≥ 2. C denotes that composite set. Section b.1; standard mathematics. See [1, §1.1.1].
+Delivery mechanics — The continuing-witness example defined in Section a.1: rn(x) = x−An and 
+rn(An) = 0. W is the retained identity, An the stage address, and Hn the displayed sequence of 
+earlier identity-and-address records. The formula recenters; it does not generate addresses.
+Euler-Zeno in Prime Relatives (EZPR) — Euler-Zeno in Prime Relatives (EZPR) is the construction
+specified in Sections B–E: select S, associate retained records with labels p ∈ S, supply a parent 
+span and two readings for each admitted event, and impose equal readings. Selection and 
+matching are separate conditions. Theorems 1–6 in Sections C–H establish consequences of 
+those conditions.
+Event — The marked location x ∈ ℝ in a specified parent record, together with its readings t = 
+(x−a)/(b−a) and u = (b−x)/(b−a). For an event inside its parent, a ≤ x ≤ b and t,u ∈ [0,1]. 
+Matching additionally requires t = u. The term does not introduce a time variable or physical 
+propagation law. Sections b.2–b.3.
+Frame / chart — A coordinate chart assigns real addresses to the locations under consideration. 
+This paper uses relative translation rA(x) = x−A, A ∈ ℝ, and affine changes f(x) = αx+β, α ≠ 0. 
+Their inverses are rA⁻¹(y) = y+A and f⁻¹(y) = (y−β)/α. A comparison across charts requires the 
+specified connecting map; equal written numerals in different charts alone do not identify a 
+location. Sections a.1 and F.
+Generation / recursive preservation — Let Gn be the record collection at stage n ∈ N0. Assume
+every record in G0 is valid, inherited records retain validity at the next stage, and every newly 
+admitted record is valid. Induction then gives validity throughout every Gn. Here validity 
+means satisfaction of the declared parent, incidence, and matching conditions. Section G.
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 23
+Incidence — For E(t) = a+Lt and T(u) = b−Lu, with L = b−a>0, incidence means E(t) = T(u). 
+Subtracting a and dividing by L gives t+u = 1. This equality identifies a common location but 
+does not by itself require t = u. Section D.
+Induction — Prove a starting stage and prove that validity at one stage implies validity at the 
+next. The result then holds at every finite stage. Section G; standard proof method. See [3, 
+§10.1].
+Infinite addressing — The paper’s term for specifying an entire indexed family and proving a 
+universally quantified property: for an arbitrary p ∈ S, prove P(p), hence ∀p ∈ S, P(p). This 
+denotes a mode of specification and proof, not an algorithm that enumerates infinitely many 
+inputs in finite time. Section E.
+Injective — A map f:X→Y is injective if ∀x1,x2 ∈ X, f(x1) = f(x2) implies x1 = x2. Section H applies
+this definition to the carry map K. See [3, §12.2].
+Label — The numerical identifier p retained in a record. It is distinct from event location xp. 
+Section b.2; paper definition.
+Lean / Mathlib — Lean is an interactive theorem prover and programming language [5]. Mathlib
+is a community-developed library of formalized mathematics; its architecture and collaborative 
+development are described in [8]. That 2020 publication predates Lean 4 and is cited for library 
+background, not as evidence of this manuscript’s build or proof coverage. The companion 
+README identifies the archived source, library revision, and exact coverage of this paper’s 
+formal development.
+Local closure — In the prime-record model, incidence and matching put every admitted event at 
+its identified parent midpoint (Theorems 2–3). In the analytic readout, Theorem 8 gives exact 
+recovery of zeros already on the signed crease, with multiplicity. These domains are distinct. 
+Original-zero recovery in Theorem 9 retains the real offset; Section K proves the universal 
+placement equivalence, not universal placement itself.
+Matching / admission rule — An incident pair is matched when t = u. Together, t+u = 1 and t =
+u imply t = u = ½. Matching is an admission condition of this model, not a conclusion of the 
+arithmetic definition of a prime. Sections b.3 and D.
+Midpoint / crease — The location (ap+bp)/2. “Crease” is this paper’s name for the parent 
+midpoint; the term alone asserts no physical fold. Sections b.4 and D; paper convention.
+Off-crease — In the prime-record model, an event differs from its identified parent midpoint. In 
+the analytic common frame, an input has Re s ≠ ½, equivalently real offset d ≠ 0. Theorem 3 
+excludes off-midpoint admitted matched records; it does not establish universal critical-line 
+placement of zeta zeros. Sections E, I, and K.
+Parent / parent span — A parent comprises an identifier κ and endpoints a,b ∈ ℝ with a<b. Its 
+span is [a,b], and its length is L = b−a>0. Both readings of an event must use this same 
+identified parent and this same L. Two distinct identifiers may have equal endpoint coordinates 
+without representing the same parent. Sections b.2 and E.
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 24
+Participant / projector — A participant identifier distinguishes an operand or perspective 
+retained in a comparison record. In the paper’s one-dimensional representation, the two 
+projector readings are E(t) = a+(b−a)t and T(u) = b−(b−a)u, for t,u ≥ 0. These parameterizations 
+are the mathematical objects used here; the archival perspective terminology does not supply 
+an additional receiver or reflection operation. Sections b.4 and D.
+Premise / theorem / proof — A premise is an input condition; a theorem is a statement derived
+from specified conditions; a proof supplies that derivation. Used throughout; standard logical 
+terminology.
+Prime — For p ∈ N0, p is prime if p ≥ 2 and every positive divisor d of p satisfies d = 1 or d = p. 
+Equivalently, no u,v ∈ N0 with u,v ≥ 2 satisfy p = uv. Here d divides p when p = dk for some k ∈ 
+N0. Section C; [1, §1.1.1].
+Projection — A map retaining one component of a pair, such as (p,1/2)↦p. Section E; standard 
+mathematics.
+Ray — Here a parameterized half-line Ep(t) = ap+Lp t or Tp(u) = bp−Lp u for nonnegative 
+parameters. Parameters are coordinates, not time. Section D; mathematical representation 
+introduced here.
+Real offset — At an original zero ρ = X + iY, define d = X − ½. Its full address is (Y,d), and C(Y) + d 
+= ρ. The same-height difference ρ − C(Y) equals d and vanishes exactly when X = ½. Section K.
+Record — A retained record Q contains a numerical label p, participant identifiers, a parent 
+identifier, its endpoints a<b, and an event address x. Its normalized readings are derived from 
+these fields. Qn denotes a record at stage n; Hn = (Q0,…,Qn) denotes the ordered history in the 
+worked example. A record and a history are different objects. Equal event addresses do not 
+imply equal records. Sections b.2 and h.1.
+Relative progress / normalized reading — tp = (xp−ap)/Lp or up = (bp−xp)/Lp. Normalization 
+divides by the same nonzero parent length. These are directed coordinates; inside the segment 
+they are fractions measured from opposite ends. Section b.3; paper definition. See [2, §2.6].
+Retention / inherited state — An inherited state h is retained by K when a specified decoder R 
+satisfies R(K(h)) = h. Additional experience e may be stored with h, but the recovery claim 
+concerns h. Merely keeping a label or an address is insufficient unless it determines the entire 
+state being claimed as recoverable. Section H.
+Riemann zeta function and Riemann hypothesis — Initially ζ(s) = ∑ₙ₌₁∞ n⁻ˢ for Re s > 1, continued
+meromorphically with a pole at s = 1. The trivial zeros are −2, −4, −6, …. The nontrivial zeros lie
+in the open strip 0 < Re s < 1. The Riemann hypothesis asserts Re ρ = ½ for every nontrivial 
+zero ρ. [4, 7]
+In the analytic realization, write s = X + iY. The signed chart C(Y) = ½ + iY has one free real 
+parameter. The positive bent path agrees with it for Y ≥ 0. The readout F(Y) = ζ(C(Y)) covers 
+precisely the crease zeros. The aggregate transform recovers every original strip zero; its full 
+address retains (Y,d). Coverage by Y alone is the full-strip placement condition in Section K.
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 25
+Shared parent — The same identified parent interval is used by the compared records. Distinct 
+parents with equal endpoint coordinates have the same numerical midpoint, but remain distinct
+parents. Equal normalized readings alone do not establish a common parent or address. Section 
+E; paper condition.
+Signed height window — For each T > 0, both counts in t.8 use the open window −T < Im ρ < T, 
+or −T < Y < T on the crease. Endpoints are excluded, and zeros are counted with multiplicity. 
+Equality at every cutoff is equivalent to universal crease placement. Section p.2.
+Survivor / surviving family — S = N0∖({0,1}∪C), with C the set of proper products. A survivor is
+an element n ∈ S. The Prime Survivor Equivalence Theorem establishes n ∈ S if and only if n is 
+prime. Sections b.1 and C.
+Union / coverage — The generated collection is G = ⋃n ∈ N0 Gn: q ∈ G exactly when q ∈ Gn for 
+some finite n. Coverage of primes is the additional statement ∀p ∈ S, ∃q ∈ G with label(q) = p. 
+Preservation of validity does not establish this additional statement. Section G. See [3, §1.8].
+VPA — VPA expands to Value, Perception, Action in the TRYX source vocabulary. It is contextual
+terminology in this paper, not an additional axiom of Theorems C–H. Their operative objects 
+are explicitly defined records, readings, matching conditions, and recovery maps. No 
+independent mathematical definition of the full native VPA system is established here. Section 
+b.4.
+Whole numbers / nonnegative integers — 0,1,2,..., denoted N0. Domain of candidate labels. 
+Section b.1; standard mathematics.
+X line / signed Y chart — The prime-record construction uses an affine real X line (Section b.2). Its
+analytic realization uses complex inputs s = X + iY and the one-parameter signed crease C(Y) = 
+½ + iY (Section I). A path constraint fixes its own image; full-address recovery retains the real 
+offset required for arbitrary original zeros. Section K.
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 26
+References
+[1] William Stein. Elementary Number Theory: Primes, Congruences, and Secrets. Author’s online edition, 23 
+January 2017. Chapter 1, §1.1.1, Definitions 1.1.1 and 1.1.3. Full text.
+[2] Jean Gallier. Geometric Methods and Applications for Computer Science and Engineering. Second edition, 
+author-hosted version dated 10 October 2025. Chapter 2, especially §§2.2, 2.6–2.7 and Definition 2.6. Full 
+text.
+[3] Richard Hammack. Book of Proof. Third edition, revision 3.4. Richard Hammack, Richmond, Virginia, 
+2018. §§1.5, 1.8, 10.1, 12.2, 12.4–12.5. ISBN 978-0-9894721-2-8. Full text.
+[4] National Institute of Standards and Technology. NIST Digital Library of Mathematical Functions. F. W. J.
+Olver et al., eds. §25.2, Definition and Expansions, §25.4, Reflection Formulas, §25.10, Zeros, and §27.4, 
+Euler Products and Dirichlet Series. Accessed 6 November 2026.
+[5] Leonardo de Moura and Sebastian Ullrich. The Lean 4 Theorem Prover and Programming Language 
+(System Description). In Automated Deduction – CADE 28, Lecture Notes in Computer Science 12699, 
+Springer, 2021, pp. 625–635. DOI: 10.1007/978-3-030-79876-5_37. Full text.
+[6] Bernhard Riemann. Ueber die Anzahl der Primzahlen unter einer gegebenen Grösse [On the Number of 
+Primes Less Than a Given Magnitude]. Monatsberichte der Berliner Akademie, November 1859. English 
+translation by David R. Wilkins, hosted by the Clay Mathematics Institute. English translation.
+[7] Enrico Bombieri. Problems of the Millennium: the Riemann Hypothesis. Clay Mathematics Institute, 
+undated online exposition, §§I–II. Accessed 1 November 2026. Full text.
+[8] The mathlib Community. “The Lean Mathematical Library.” In Proceedings of the 9th ACM SIGPLAN 
+International Conference on Certified Programs and Proofs (CPP ’20). ACM, New York, 2020, pp. 367–381. 
+DOI: 10.1145/3372885.3373824. Full text.
+[9] Jeffrey C. Lagarias. “An Elementary Problem Equivalent to the Riemann Hypothesis.” The American 
+Mathematical Monthly 109 (2002), 534–543. Theorem 1.1 and §§1–3. Author’s preprint, revised 6 May 2001.
+[10] Dave Platt and Tim Trudgian. The Riemann Hypothesis Is True up to 3 · 1012
+. Bulletin of the London 
+Mathematical Society 53(3), 2021, pp. 792–797. Theorem 1 and §2. Author preprint: arXiv:2004.09765. 
+Published version: doi:10.1112/blms.12460.
+[18] Lars V. Ahlfors. Complex Analysis. 3rd ed. McGraw-Hill, 1979. Chapter 4, Theorem 18, argument 
+principle. Digitized edition.
+Project sources and verification records
+[11] Gattenby, V. L. Euler-Zeno in Prime Relatives, approved V32. November 2026. Sections C–H.
+[12] Historical prime admission and relative coordinates, PC1–PC7. October 30, 2026.
+[13] Prime Crease V6 source and historical perpendicular-line theorem.
+[14] Prime-trace correspondence theorem. October 18, 2026.
+[15] Relative-coordinate addendum. November 5, 2026.
+[16] Contour certificate, verifier and 7 November replay; archived October–November reports. Certificate
+and replay.
+[17] Consolidated PrimeCrease source and successful V8 verification; historical V5 archive. Current 
+source. Verification.
+
+Euler-Zeno in Prime Relatives (EZPR)
+Gattenby 27
+Q. Formal verification and source notes
+Formal verification. The current project supplies one consolidated PrimeCrease.lean, with no local
+proof-file imports. Its exact source passed compilation with warnings treated as errors and the 
+one-module Lake build using Lean 4.34.0-rc2 and Mathlib revision 
+85e3a25e006c35636f0e53b0e9296caca2685bc0. The preserved logs report only propext, 
+Classical.choice and Quot.sound. The source and pinned environment are unchanged from 
+verified V8; no new Lean run was needed for this editorial successor. Theorems 4–6 retain written
+proofs. The table states the formal correspondence and preserves each statement’s hypotheses. 
+[17]
+Claim Lean declaration
+Common-frame crease under its stated 
+hypothesis
+common_crease
+Turned path evaluation bent_zeta_readout
+Exact crease zeros and multiplicity readout_exact,
+readout_preserves_analytic_order
+Prime spectrum and weighted series prime_spectrum_agrees,
+aggregate_agrees
+Simple poles and residue form aggregate_simple_pole_iff,
+aggregate_residue_form
+Full address and placement equivalence decode_encode,
+full_coverage_iff_placement
+Reproduction. From the included lean directory, with the pinned toolchain installed, run lake env 
+lean -DwarningAsError=true PrimeCrease.lean, then lake build. Dependency retrieval requires 
+network access. The included receipt and logs record the successful prior compilation and build of
+this unchanged source; the earlier V5 two-file instructions are historical. For the bounded contour
+replay, run python3 evidence/contour/replay.py from the extracted packet root. The included 7 
+November result records 128 exact disk matches and winding one. The launcher uses the retained 
+arithmetic implementation; no independent new enclosure implementation or proof-kernel check
+is claimed.

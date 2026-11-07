@@ -1,0 +1,11 @@
+{
+  "edition": "2026.11.07-publication-v2",
+  "date": "2026-11-07",
+  "pages": 27,
+  "original_lock_applies": false,
+  "predecessor": "../lineage/paper-2026-11-06/",
+  "editorial_receipt": "../evidence/DOCX_EDIT_RECEIPT.json",
+  "qa": "../evidence/FINAL_DOCUMENT_QA.json",
+  "lean_rerun": false,
+  "scope_unchanged": true
+}

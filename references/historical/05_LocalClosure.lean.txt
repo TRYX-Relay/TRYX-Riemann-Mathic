@@ -1,0 +1,104 @@
+import Mathlib.Data.Nat.Prime.Defs
+import Mathlib.Data.Real.Basic
+import Mathlib.Tactic
+
+/- Local closure of the DECLARED model, not native ENIAD realization or RH. -/
+namespace TryxZipper
+
+theorem matched_progress (t u : ℝ)
+    (incidence : t + u = 1) (matching : t = u) :
+    t = 1 / 2 ∧ u = 1 / 2 := by
+  constructor <;> linarith
+
+theorem midpoint (a b x t u : ℝ)
+    (incidence : t + u = 1) (matching : t = u)
+    (location : x = a + (b - a) * t) :
+    x = (a + b) / 2 := by
+  obtain ⟨ht, _⟩ := matched_progress t u incidence matching
+  rw [ht] at location
+  linarith
+
+structure Model (P : Set ℕ) where
+  a : ℕ → ℝ
+  b : ℕ → ℝ
+  x : ℕ → ℝ
+  t : ℕ → ℝ
+  u : ℕ → ℝ
+  span : ∀ p ∈ P, a p < b p
+  incidence : ∀ p ∈ P, t p + u p = 1
+  matching : ∀ p ∈ P, t p = u p
+  location : ∀ p ∈ P, x p = a p + (b p - a p) * t p
+
+theorem local_closure {P : Set ℕ} (m : Model P) :
+    ∀ p ∈ P, m.x p = (m.a p + m.b p) / 2 := by
+  intro p hp
+  exact midpoint _ _ _ _ _ (m.incidence p hp)
+    (m.matching p hp) (m.location p hp)
+
+theorem no_off_crease {P : Set ℕ} (m : Model P) (p : ℕ) (hp : p ∈ P) :
+    ¬ (m.x p < (m.a p + m.b p) / 2 ∨
+       (m.a p + m.b p) / 2 < m.x p) := by
+  rw [local_closure m p hp]
+  simp
+
+-- The cancellation/primality correspondence remains an explicit input here.
+theorem all_primes_at_parent_crease {P : Set ℕ} (m : Model P)
+    (certificate : ∀ p, p ∈ P ↔ Nat.Prime p) :
+    ∀ p, Nat.Prime p → m.x p = (m.a p + m.b p) / 2 := by
+  intro p hp
+  exact local_closure m p ((certificate p).mpr hp)
+
+theorem shared_parent {P : Set ℕ} (m : Model P) (a b : ℝ)
+    (sameA : ∀ p ∈ P, m.a p = a)
+    (sameB : ∀ p ∈ P, m.b p = b) :
+    ∀ p ∈ P, m.x p = (a + b) / 2 := by
+  intro p hp
+  simpa only [sameA p hp, sameB p hp] using local_closure m p hp
+
+def Zipper (P : Set ℕ) : Set (ℕ × ℝ) :=
+  {z | z.1 ∈ P ∧ z.2 = 1 / 2}
+
+theorem zipper_membership {P : Set ℕ}
+    (certificate : ∀ p, p ∈ P ↔ Nat.Prime p) (p : ℕ) :
+    (∃ x, (p, x) ∈ Zipper P) ↔ Nat.Prime p := by
+  constructor
+  · rintro ⟨x, hx⟩
+    exact (certificate p).mp hx.1
+  · intro hp
+    exact ⟨1 / 2, (certificate p).mpr hp, rfl⟩
+
+-- Exact whole-family cancellation predicate; no enumeration.
+def Survivor (n : ℕ) : Prop :=
+  2 ≤ n ∧ ¬ ∃ u v : ℕ, 2 ≤ u ∧ 2 ≤ v ∧ u * v = n
+
+theorem survivor_iff_prime (n : ℕ) : Survivor n ↔ Nat.Prime n := by
+  constructor
+  · rintro ⟨hn, hnone⟩
+    apply Nat.prime_def_lt'.mpr
+    refine ⟨hn, ?_⟩
+    intro d hd hdn hdiv
+    obtain ⟨v, hv⟩ := hdiv
+    have hv2 : 2 ≤ v := by
+      by_contra h
+      have : v = 0 ∨ v = 1 := by omega
+      rcases this with h0 | h1
+      · simp [h0] at hv
+        omega
+      · simp [h1] at hv
+        omega
+    exact hnone ⟨d, v, hd, hv2, hv.symm⟩
+  · intro hp
+    refine ⟨hp.two_le, ?_⟩
+    rintro ⟨u, v, hu, hv, heq⟩
+    have ult : u < n := by nlinarith
+    exact (Nat.prime_def_lt'.mp hp).2 u hu ult ⟨v, heq.symm⟩
+
+theorem cancelled_family_closure (m : Model {n | Survivor n}) :
+    ∀ p, Nat.Prime p → m.x p = (m.a p + m.b p) / 2 := by
+  apply all_primes_at_parent_crease m
+  intro p
+  exact survivor_iff_prime p
+
+#print axioms TryxZipper.cancelled_family_closure
+#print axioms TryxZipper.survivor_iff_prime
+end TryxZipper
