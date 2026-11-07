@@ -56,10 +56,16 @@ PUBLIC RELEASE GATES
     Destination: https://github.com/TRYX-Relay/TRYX-Riemann-Mathic
 [x] R19. Set final citation metadata and reconcile README, guide, paper, MATHIC,
     instrument versions and evidence status against that exact release candidate.
-[ ] R20. Check the actual public download and reading links without account access.
-    If a hosted instrument is advertised, verify it anonymously as well.
-[ ] R21. Complete the final release audit, record exact hashes and issue the
-    versioned publication/ledger receipt for the accepted candidate.
+[x] R20. Check the actual public download and reading links without account access.
+    All 87 initial public artifact files matched local SHA-256 bytes without
+    credentials or cookies. No hosted instrument is advertised. The final ZIP
+    verification is recorded separately in the publication download receipt.
+[x] R21. Complete the final release audit, record exact hashes and issue the
+    versioned publication/ledger receipt for the accepted candidate. See
+    PUBLICATION_RECEIPT.json and FILE_HASHES.json. A download receipt records
+    the final ZIP hash and immutable publication commit. See
+    PUBLICATION_RECEIPT.json and FILE_HASHES.json. A download receipt records
+    the final ZIP hash and immutable publication commit.
 
 RULE FOR LEAN
 Do not rerun Lean unless the proof source, imports, pinned dependencies, toolchain

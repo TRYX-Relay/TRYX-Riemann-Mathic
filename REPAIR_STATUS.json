@@ -1,8 +1,8 @@
 {
   "date": "2026-11-07",
   "version": "RIEMANN_REPAIR_261107_V2",
-  "status": "PUBLICATION_CANDIDATE_PREPARED",
-  "phase": "Document repairs complete; public repository created; upload and anonymous validation pending",
+  "status": "PUBLICATION_REPAIR_COMPLETE",
+  "phase": "R01\u2013R21 complete; scoped public publication, anonymous byte verification and versioned receipt",
   "predecessor_repository": "TRYX-Relay/TRYX-MATHIC",
   "predecessor_commit": "7c5443938bb39e59d2c36ddec85c80f7a6649e58",
   "predecessor_zip_blob": "ff3e1754f97c04283712d0b6564f6a5a392e5aac",
@@ -25,12 +25,11 @@
     "R16",
     "R17",
     "R18",
-    "R19"
-  ],
-  "open_checklist_items": [
+    "R19",
     "R20",
     "R21"
   ],
+  "open_checklist_items": [],
   "protected_files": [
     {
       "path": "lineage/paper-2026-11-06/PAPER.pdf",
@@ -113,6 +112,9 @@
   "historical_pdf_link_occurrences": 17,
   "canonical_public_url": "https://github.com/TRYX-Relay/TRYX-Riemann-Mathic",
   "external_publication_or_ledger_changes": true,
-  "citation_status": "Final dated publication metadata; upload and anonymous verification pending",
-  "scope": "Admitted local closure and exact signed-crease readout; no universal RH closure."
+  "citation_status": "Final dated publication metadata",
+  "scope": "Admitted local closure and exact signed-crease readout; no universal RH closure.",
+  "public_artifact_verified_commit": "0ca3158e28e890d9ac79d1762cdf81f3d4fb8f05",
+  "anonymous_verified_files": 87,
+  "theorem_lock_changed": false
 }

@@ -1,5 +1,5 @@
 {
-  "active_relative_links_checked": 96,
+  "active_relative_links_checked": 97,
   "guide_pdf_page_routes_checked": 25,
   "broken_links": [],
   "runtime_files_compared": [
@@ -7,7 +7,8 @@
     "tools/re6b/app.js",
     "tools/re6b/phase.js",
     "tools/re6b/3E6B_REFERENCE.html",
-    "tools/zeta-sniffer/index.html"
+    "tools/zeta-sniffer/index.html",
+    "tools/zeta-sniffer/engine.js"
   ],
   "unchanged": true,
   "pdf_visual_review": "All 27 current paper pages and appended MATHIC update inspected; original MATHIC pages retain content streams.",

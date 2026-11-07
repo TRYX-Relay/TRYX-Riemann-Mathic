@@ -2,7 +2,8 @@
   "algorithm": "SHA-256",
   "excluded": [
     "FILE_HASHES.json",
-    "RIEMANN_PUBLICATION_20261107.zip"
+    "RIEMANN_PUBLICATION_20261107.zip",
+    "PUBLICATION_DOWNLOAD_RECEIPT.json"
   ],
   "files": {
     "CITATION.cff": {
@@ -17,25 +18,33 @@
       "sha256": "9da2eccf0ffa42febadc6f93cd4c9ff131de74ce4a7bcdd839e4db664f32183f",
       "bytes": 1880
     },
+    "LICENSE.md": {
+      "sha256": "7c57dbdfc7b5f4b81ad445e6d468c2aa5f0eeae1bf2577bbe89644d8b426959f",
+      "bytes": 2817
+    },
     "PUBLICATION_RECEIPT.json": {
-      "sha256": "21a822dae8fb193c875c318ab285b8c891be3a1e9a835eff1b3e6813c90289a3",
-      "bytes": 288
+      "sha256": "15ddab3b4e33cd20b471400b3b3d75d4396f72f99757467d36988c20513fe50d",
+      "bytes": 1535
     },
     "READERS_GUIDE.md": {
       "sha256": "9ae413c0567e54172536b9c62848096c0905018a6d839818814b38afd7597ef3",
       "bytes": 3899
     },
     "README.md": {
-      "sha256": "5eff2791ae2c0920b3546bf052b8310c5b4d741c18b00a585b7f1dd51a327720",
-      "bytes": 3360
+      "sha256": "a6f28f4357a23c9a3afb1a2b34d4bd01d946c62090de63735c239e34b5f2cda5",
+      "bytes": 3675
     },
     "REPAIR_CHECKLIST.txt": {
-      "sha256": "28f14457e0e886a42a71291e73f38345b3ca89284fb51349d1e0232155b86207",
-      "bytes": 5186
+      "sha256": "beed6c808c998900462d054b0623eb1b7fca86a1e0e5f59ddc6a7f40207019ac",
+      "bytes": 5623
     },
     "REPAIR_STATUS.json": {
-      "sha256": "974fa1ab76f7f14d68308bcaa97916d4653aef5ccd8505f7aa4ae513f4f4f399",
-      "bytes": 3669
+      "sha256": "09fb8669b7a901c9d338d22b47a51bc2d65a45452439af8f4799182d3ae4d4ff",
+      "bytes": 3775
+    },
+    "evidence/ANONYMOUS_INITIAL_PUBLICATION_VERIFICATION.json": {
+      "sha256": "07877ece2cbbeb8ad4825b10b7ed632dba803f806ded57bb2b2f0959b503604c",
+      "bytes": 19276
     },
     "evidence/DOCX_EDIT_RECEIPT.json": {
       "sha256": "9d2191a20c348b678d79ded5bd6686c473298877849053d27c0161ad2c422076",
@@ -46,8 +55,8 @@
       "bytes": 1007
     },
     "evidence/FINAL_PACKET_QA.json": {
-      "sha256": "e266271b2fa0c3347bd86856ee3e927932885a56eff8bd6bc531d4bb5756c813",
-      "bytes": 474
+      "sha256": "5f6d41da68bab90146a29749e60fe60b10c9f6d5b5a123b5acbad9a7004a5473",
+      "bytes": 510
     },
     "evidence/PDF_READER_REPAIR.json": {
       "sha256": "f70d3b83c4a36aae2e0bd64e49b28a501b27dd1e6c23aa420ad381e67045d3a5",

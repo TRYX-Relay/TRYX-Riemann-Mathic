@@ -1,9 +1,35 @@
 {
-  "status": "UPLOAD_CANDIDATE",
-  "date": "2026-11-07",
-  "canonical_repository": "https://github.com/TRYX-Relay/TRYX-Riemann-Mathic",
   "edition": "2026.11.07-publication-v2",
-  "anonymous_access_verification": "pending upload",
+  "date": "2026-11-07",
+  "status": "PUBLICATION_REPAIR_COMPLETE",
+  "canonical_repository": "https://github.com/TRYX-Relay/TRYX-Riemann-Mathic",
+  "predecessor_repository": "TRYX-Relay/TRYX-MATHIC",
+  "predecessor_commit": "7c5443938bb39e59d2c36ddec85c80f7a6649e58",
+  "paper_predecessor_text_git_blob": "06ede008c14ef9bfb4786138dc724e0e32dd6bd8",
+  "paper_predecessor_matches_ledger_current": true,
+  "public_artifact_verification": {
+    "commit": "0ca3158e28e890d9ac79d1762cdf81f3d4fb8f05",
+    "files": 87,
+    "all_sha256_matches": true,
+    "credentials_sent": false,
+    "cookies_sent": false,
+    "receipt": "evidence/ANONYMOUS_INITIAL_PUBLICATION_VERIFICATION.json"
+  },
+  "document_qa": "evidence/FINAL_DOCUMENT_QA.json",
+  "packet_qa": "evidence/FINAL_PACKET_QA.json",
+  "original_locks_preserved": true,
+  "mathic_theorem_edition": "V8.1",
+  "mathic_reader_update_pages": 1,
   "lean_rerun": false,
-  "universal_RH_closed": false
+  "formal_source_stale": false,
+  "saved_full_contour_replayed_disks": 128,
+  "independent_new_enclosure_implementation": false,
+  "universal_RH_closed": false,
+  "licensing": {
+    "notice": "LICENSE.md",
+    "source_repository": "TRYX-Relay/TRYX-MATHIC",
+    "source_license_git_blob": "05e87c93f4d53aa8b48ec5ea6ddff30e5ea10768",
+    "new_software_license_granted": false
+  },
+  "archive_integrity": "FILE_HASHES.json records every packet file except itself; archive hash and final public download verification are recorded in the separate PUBLICATION_DOWNLOAD_RECEIPT.json."
 }

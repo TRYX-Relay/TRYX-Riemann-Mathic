@@ -29,3 +29,7 @@ The proved closure concerns admitted prime records under their stated matching a
 This dated publication successor preserves the original locked paper under [lineage](lineage/paper-2026-11-06/) and the [original 17-page MATHIC](mathic/MATHIC.pdf), its [source](mathic/MATHIC.md) and lock. The MATHIC reader copy changes reference annotations and adds a dated page 18; its first 17 pages retain the original content streams. This is not a new theorem lock.
 
 Canonical repository: [TRYX-Relay/TRYX-Riemann-Mathic](https://github.com/TRYX-Relay/TRYX-Riemann-Mathic). Use [CITATION.cff](CITATION.cff), [repair status](REPAIR_STATUS.json), [file hashes](FILE_HASHES.json) and the [publication receipt](PUBLICATION_RECEIPT.json). Historical private-repository URLs are provenance; the selected reading copies are [included](references/README.md).
+
+## License
+
+The [existing CC BY-NC 4.0 content license](LICENSE.md) accompanies the author-owned paper and MATHIC expressive content. Code, Lean proof source and third-party material retain the license notice's exclusions and any applicable existing licenses. This publication creates no broader software license.
