@@ -1,10 +1,15 @@
-import Mathlib.Data.Nat.Prime.Defs
-import Mathlib.Data.Real.Basic
-import Mathlib.Tactic
-import Mathlib.NumberTheory.EulerProduct.DirichletLSeries
-import Mathlib.NumberTheory.LSeries.Dirichlet
-import Mathlib.Analysis.Analytic.Order
-import Mathlib.Analysis.Meromorphic.Order
+module
+
+public import Mathlib.Data.Nat.Prime.Defs
+public import Mathlib.Data.Real.Basic
+public import Mathlib.Tactic
+public import Mathlib.NumberTheory.EulerProduct.DirichletLSeries
+public import Mathlib.NumberTheory.LSeries.Dirichlet
+public import Mathlib.Analysis.Analytic.Order
+public import Mathlib.Analysis.Meromorphic.Order
+public import Mathlib.Analysis.Normed.Module.Connected
+
+@[expose] public section
 import Mathlib.Analysis.Normed.Module.Connected
 
 /- Prime Crease verified local closure V8. Consolidated source. -/
