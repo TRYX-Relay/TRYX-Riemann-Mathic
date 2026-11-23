@@ -1,0 +1,52 @@
+name: Verify Riemann Prime Crease Lean
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - palomar-compatibility
+
+permissions:
+  contents: read
+
+jobs:
+  lean-kernel:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Install Lean
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/v4.1.2/elan-init.sh -o /tmp/elan-init.sh
+          sh /tmp/elan-init.sh -y --default-toolchain leanprover/lean4:v4.35.0-rc2
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Update dependencies
+        working-directory: lean
+        run: |
+          lean --version
+          lake update
+          lake exe cache get
+
+      - name: Audit proof source
+        working-directory: lean
+        run: |
+          ! grep -nE '\b(sorry|admit)\b|^[[:space:]]*(public[[:space:]]+)?axiom\b' PrimeCrease.lean
+
+      - name: Build Prime Crease
+        working-directory: lean
+        run: lake build PrimeCrease
+
+      - name: Kernel verification
+        working-directory: lean
+        run: lake env lean PrimeCrease.lean
+
+      - name: Preserve dependency manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: riemann-migrated-manifest
+          path: lean/lake-manifest.json
+          if-no-files-found: error
