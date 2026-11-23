@@ -10,7 +10,6 @@ public import Mathlib.Analysis.Meromorphic.Order
 public import Mathlib.Analysis.Normed.Module.Connected
 
 @[expose] public section
-import Mathlib.Analysis.Normed.Module.Connected
 
 /- Prime Crease verified local closure V8. Consolidated source. -/
 
