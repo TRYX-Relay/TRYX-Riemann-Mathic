@@ -1,52 +1,158 @@
-name: Verify Riemann Prime Crease Lean
+name: Verify Riemann Prime Crease and independent checker
 
 on:
   workflow_dispatch:
   push:
-    branches:
-      - palomar-compatibility
+    branches: [palomar-compatibility]
 
 permissions:
   contents: read
 
+concurrency:
+  group: riemann-lean-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
 jobs:
-  lean-kernel:
+  build:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
+      - &checkout
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
 
-      - name: Install Lean
-        run: |
-          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/v4.1.2/elan-init.sh -o /tmp/elan-init.sh
-          sh /tmp/elan-init.sh -y --default-toolchain leanprover/lean4:v4.35.0-rc2
-          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Prepare verification logs
+        run: mkdir -p verification-logs
 
-      - name: Update dependencies
+      - &lean
+        name: Install Lean
+        run: |
+          curl --fail --location --retry 3 https://raw.githubusercontent.com/leanprover/elan/v4.1.2/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          sh "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain leanprover/lean4:v4.35.0-rc2
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/lean" +leanprover/lean4:v4.35.0-rc2 --version | tee verification-logs/lean-version.log
+
+      - name: Regenerate dependency manifest
         working-directory: lean
         run: |
-          lean --version
           lake update
+          cp lake-manifest.json "$GITHUB_WORKSPACE/verification-logs/lake-manifest.json"
+
+      - &deps
+        name: Verify pinned dependencies
+        working-directory: lean
+        run: |
+          sha256sum lake-manifest.json > "$GITHUB_WORKSPACE/verification-logs/manifest-before.sha256"
           lake exe cache get
+          sha256sum --check "$GITHUB_WORKSPACE/verification-logs/manifest-before.sha256"
+          python3 - <<'CHECK'
+          import json, subprocess
+          from pathlib import Path
+          for p in json.loads(Path('lake-manifest.json').read_text())['packages']:
+              actual = subprocess.check_output(
+                  ['git', '-C', str(Path('.lake/packages') / p['name']), 'rev-parse', 'HEAD'],
+                  text=True
+              ).strip()
+              assert actual == p['rev'], (p['name'], actual, p['rev'])
+              print(p['name'], actual)
+          CHECK
 
       - name: Audit proof source
         working-directory: lean
         run: |
-          ! grep -nE '\b(sorry|admit)\b|^[[:space:]]*(public[[:space:]]+)?axiom\b' PrimeCrease.lean
+          python3 - <<'CHECK'
+          import re
+          from pathlib import Path
+          source = Path('PrimeCrease.lean').read_text()
+          assert not re.search(r'\b(sorry|admit)\b|^\s*(public\s+)?axiom\b', source, re.M)
+          CHECK
 
       - name: Build Prime Crease
         working-directory: lean
-        run: lake build PrimeCrease
+        run: |
+          lake build PrimeCrease 2>&1 | tee "$GITHUB_WORKSPACE/verification-logs/build.log"
 
       - name: Kernel verification
         working-directory: lean
-        run: lake env lean PrimeCrease.lean
+        run: |
+          lake env lean PrimeCrease.lean 2>&1 | tee "$GITHUB_WORKSPACE/verification-logs/kernel.log"
 
-      - name: Preserve dependency manifest
+      - name: Preserve regenerated manifest
         uses: actions/upload-artifact@v4
         with:
           name: riemann-migrated-manifest
-          path: lean/lake-manifest.json
+          path: verification-logs/lake-manifest.json
           if-no-files-found: error
+
+      - &logs
+        name: Preserve verification logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: riemann-lean-${{ github.run_id }}-${{ github.job }}
+          path: verification-logs/
+          retention-days: 30
+
+  independent:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - *checkout
+
+      - name: Prepare verification logs
+        run: mkdir -p verification-logs
+
+      - *lean
+
+      - name: Retrieve verified dependency manifest
+        uses: actions/download-artifact@v4
+        with:
+          name: riemann-migrated-manifest
+          path: verification-logs
+
+      - name: Restore identical dependency revisions
+        working-directory: lean
+        run: |
+          cp "$GITHUB_WORKSPACE/verification-logs/lake-manifest.json" lake-manifest.json
+
+      - *deps
+
+      - name: Build independent checking tools
+        working-directory: lean
+        run: |
+          lake build comparator lean4export
+          git clone https://github.com/Zouuup/landrun.git "$RUNNER_TEMP/landrun"
+          git -C "$RUNNER_TEMP/landrun" checkout --detach 811cfff51ceaf3d9843708aa6d22e9b84ccac8b4
+          (cd "$RUNNER_TEMP/landrun" && go build -o "$RUNNER_TEMP/landrun-bin" ./cmd/landrun)
+          git clone https://github.com/ammkrn/nanoda_lib.git "$RUNNER_TEMP/nanoda"
+          git -C "$RUNNER_TEMP/nanoda" checkout --detach 4c544ed4099c8227f07d5de77ad1e69fb0740a27
+          (cd "$RUNNER_TEMP/nanoda" && cargo build --release --locked)
+          test ! -e .lake/build/lib/lean/PrimeCrease.olean
+
+      - name: Independent Comparator and NanoDa check
+        working-directory: lean
+        run: |
+          test "$(id -u)" -ne 0
+          export COMPARATOR_LANDRUN="$RUNNER_TEMP/landrun-bin"
+          export COMPARATOR_LEAN4EXPORT="$GITHUB_WORKSPACE/lean/.lake/packages/lean4export/.lake/build/bin/lean4export"
+          export COMPARATOR_NANODA="$RUNNER_TEMP/nanoda/target/release/nanoda_bin"
+          test -x "$COMPARATOR_LEAN4EXPORT"
+          test -x "$COMPARATOR_NANODA"
+          systemd-run --user --wait --pipe --collect \
+            --property=RestrictAddressFamilies=~AF_UNIX \
+            --working-directory="$PWD" \
+            --setenv=PATH="$PATH" \
+            --setenv=HOME="$HOME" \
+            --setenv=COMPARATOR_LANDRUN="$COMPARATOR_LANDRUN" \
+            --setenv=COMPARATOR_LEAN4EXPORT="$COMPARATOR_LEAN4EXPORT" \
+            --setenv=COMPARATOR_NANODA="$COMPARATOR_NANODA" \
+            lake exe comparator comparator.json \
+            2>&1 | tee "$GITHUB_WORKSPACE/verification-logs/comparator.log"
+
+      - *logs
