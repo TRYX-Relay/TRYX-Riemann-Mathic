@@ -37,10 +37,10 @@ jobs:
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
           "$HOME/.elan/bin/lean" +leanprover/lean4:v4.35.0-rc2 --version | tee verification-logs/lean-version.log
 
-      - name: Regenerate dependency manifest
+      - name: Preserve pinned dependency manifest
         working-directory: lean
         run: |
-          lake update
+          test -f lake-manifest.json
           cp lake-manifest.json "$GITHUB_WORKSPACE/verification-logs/lake-manifest.json"
 
       - &deps
@@ -82,10 +82,16 @@ jobs:
         run: |
           lake env lean PrimeCrease.lean 2>&1 | tee "$GITHUB_WORKSPACE/verification-logs/kernel.log"
 
-      - name: Preserve regenerated manifest
+      - name: Confirm manifest remains unchanged
+        working-directory: lean
+        run: |
+          sha256sum --check "$GITHUB_WORKSPACE/verification-logs/manifest-before.sha256"
+          git diff --exit-code -- lake-manifest.json
+
+      - name: Preserve verified pinned manifest
         uses: actions/upload-artifact@v4
         with:
-          name: riemann-migrated-manifest
+          name: riemann-pinned-manifest
           path: verification-logs/lake-manifest.json
           if-no-files-found: error
 
@@ -113,13 +119,13 @@ jobs:
       - name: Retrieve verified dependency manifest
         uses: actions/download-artifact@v4
         with:
-          name: riemann-migrated-manifest
+          name: riemann-pinned-manifest
           path: verification-logs
 
-      - name: Restore identical dependency revisions
+      - name: Confirm identical dependency manifest
         working-directory: lean
         run: |
-          cp "$GITHUB_WORKSPACE/verification-logs/lake-manifest.json" lake-manifest.json
+          cmp lake-manifest.json "$GITHUB_WORKSPACE/verification-logs/lake-manifest.json"
 
       - *deps
 
@@ -154,5 +160,11 @@ jobs:
             --setenv=COMPARATOR_NANODA="$COMPARATOR_NANODA" \
             lake exe comparator comparator.json \
             2>&1 | tee "$GITHUB_WORKSPACE/verification-logs/comparator.log"
+
+      - name: Confirm manifest remains unchanged
+        working-directory: lean
+        run: |
+          sha256sum --check "$GITHUB_WORKSPACE/verification-logs/manifest-before.sha256"
+          git diff --exit-code -- lake-manifest.json
 
       - *logs
